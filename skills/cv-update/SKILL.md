@@ -20,6 +20,8 @@ cover letters see the same facts.
    profile/cv-canonical.md`; a banned phrase blocks the edit list.
 3. Apply through the adapter in `career.json` `cv.adapter`:
    - `canva`: `docs/adapters/canva.md` (transactional, one page per call, finalize is irreversible)
+     Moving a PDF or DOCX CV into Canva for the first time: the adapter's "Starting a Canva CV
+     from another format" section, run after `intake`.
    - `docx`: `docs/adapters/docx.md` (python-docx, keep runs and styles)
    - `markdown` / `html`: `docs/adapters/markdown-html.md` (edit source, render with Chrome or pandoc)
    - `google-docs`: `docs/adapters/google-docs.md`
