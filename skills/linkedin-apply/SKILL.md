@@ -39,3 +39,5 @@ the differ. Anything `mismatch` or `stale` goes into the next round's "what is l
 Update `out/status.md` and `out/apply-log.md`.
 
 History: snapshot the profile before the first edit and after the last, as described in `profile-history`.
+
+Pre-flight (assisted and auto): run `operator-selftest` first unless a passing self-test is younger than 24 hours; stop on `changed` or `blocked`.

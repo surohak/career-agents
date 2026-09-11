@@ -72,8 +72,20 @@ flowchart TD
   S40 --> S49[contract-mode]
   S13 --> S50[video-intro]
   S51[cohort<br/>many workspaces] --> S22
+  S52[operator-selftest<br/>read-only] --> S20
+  S52 --> S21
+  S53[job-boards<br/>feeds, career pages] --> S10
+  S54[voice-notes] --> S42
+  S54 --> S17
+  S17 --> S55[run-log]
+  S17 --> S56[notes-sync]
+  S57[manager-track / early-career<br/>track rules] --> S3
+  S57 --> S13
+  S58[portfolio-site] --> S6
+  S24 --> S59[reference-prep]
+  S10 --> S60[relocation-planner]
   classDef gate fill:#fde68a,stroke:#b45309,color:#000;
-  class S3,S5,S6,S26,S30,S37,S41,S45 gate;
+  class S3,S5,S6,S26,S30,S37,S41,S45,S58 gate;
 ```
 
 Yellow nodes are where the automation mode decides: `draft` stops with a file, `assisted` asks

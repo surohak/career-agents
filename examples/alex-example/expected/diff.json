@@ -1,0 +1,63 @@
+{
+ "jobs": [
+  {
+   "job": "Northwind Logistics | Senior Full-Stack Engineer",
+   "linkedin_dates": "03/2022 - Present",
+   "location": null,
+   "facts": [],
+   "units": [
+    {
+     "kind": "intro",
+     "status": "same",
+     "ratio": 1.0,
+     "linkedin": "Carrier tracking platform used by dispatch teams to follow shipments in real time",
+     "diff": "",
+     "cv": ""
+    },
+    {
+     "kind": "intro",
+     "status": "same",
+     "ratio": 1.0,
+     "linkedin": "Led the move from a jQuery monolith to React and TypeScript with a GraphQL API",
+     "diff": "",
+     "cv": ""
+    }
+   ]
+  },
+  {
+   "job": "Fintra Payments | Full-Stack Engineer",
+   "linkedin_dates": "06/2018 - 01/2022",
+   "location": null,
+   "facts": [
+    [
+     "dates",
+     "06/2018 - 01/2022",
+     "06/2018 - 02/2022"
+    ]
+   ],
+   "units": [
+    {
+     "kind": "intro",
+     "status": "same",
+     "ratio": 1.0,
+     "linkedin": "Merchant payments dashboard for reconciliation and payouts",
+     "diff": "",
+     "cv": ""
+    },
+    {
+     "kind": "intro",
+     "status": "changed",
+     "ratio": 0.94,
+     "linkedin": "Cut dashboard load time from 4 s to 1.2 s by moving aggregation to Postgres views",
+     "diff": "Cut dashboard load time from [-4.1-] {+4+} s to 1.2 … to Postgres views",
+     "cv": "Cut dashboard load time from 4.1 s to 1.2 s by moving aggregation to Postgres views"
+    }
+   ]
+  }
+ ],
+ "cv_only": [
+  "CV canonical text Header Alex Rivera, Senior Full-Stack Engineer Lisbon, Portugal alex@alexrivera.example linkedin.com/in/alex-rivera-example alexrivera.example Summary Full-stack engineer shipping logistics and fintech web products since 2018. React and Type Script on the front end, Node.js and PostgreSQL behind it, deployed on AWS. Experience Northwind Logistics, Senior Full-Stack Engineer Mar 2022 to Present Remote",
+  "Built the shared design system now used by two products Stack: React, Type Script, Node.js, GraphQL, PostgreSQL, AWS Fintra Payments, Full-Stack Engineer Jun 2018 to Feb 2022 Lisbon, Portugal",
+  "Added SEPA payout flow with audit log Stack: React, Node.js, PostgreSQL, Docker Education BSc Computer Science, University of Lisbon, 2018 Skills Languages: Type Script, Java Script, SQL. Frameworks: React, Node.js, GraphQL. Infra: AWS, Docker, PostgreSQL. Languages English: C2 Portuguese: native Spanish: B2"
+ ]
+}

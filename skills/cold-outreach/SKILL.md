@@ -1,6 +1,6 @@
 ---
 name: cold-outreach
-description: Hiring-manager outreach for roles with no recruiter in the loop: find the likely manager or team lead for a job through LinkedIn people search, draft a four-line note, send under approvals, track in the pipeline. Use for apply-now jobs with under 10 applicants or when the user names a company they want.
+description: Fallback when referral-finder finds no warm path: locate the likely hiring manager or talent partner through LinkedIn people search, draft a four-line note, send under approvals, track in the pipeline. Never the first move; run referral-finder first.
 disable-model-invocation: false
 allowed-tools: "Read Write"
 ---

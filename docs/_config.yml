@@ -1,0 +1,4 @@
+title: career-agents
+description: A Claude Code plugin that keeps LinkedIn, CV and personal website in sync and runs the whole job search from one source of truth.
+theme: jekyll-theme-minimal
+markdown: kramdown

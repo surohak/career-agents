@@ -17,6 +17,9 @@ for k in ("person", "cv", "target"):
 if not d["person"].get("name"): print("career.json: person.name is empty"); sys.exit(1)
 if "search" not in d or not d.get("person", {}).get("timezone"):
     print("career.json: no 'search' block or person.timezone; job-scan will ask for them (not fatal)")
+tr = d.get("target", {}).get("track", "ic")
+if tr not in ("ic", "management", "early", "change"):
+    print("career.json: target.track must be ic | management | early | change"); sys.exit(1)
 sch = d.get("schedule", {})
 if sch and sch.get("runner") not in ("scheduled-tasks", "cron", "launchd"):
     print("career.json: schedule.runner must be scheduled-tasks | cron | launchd"); sys.exit(1)

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{NAME}}, {{ROLE}}</title>
+<meta name="description" content="{{TAGLINE}}">
+<link rel="canonical" href="{{SITE_URL}}/">
+<meta property="og:title" content="{{NAME}}, {{ROLE}}">
+<meta property="og:description" content="{{TAGLINE}}">
+<meta property="og:image" content="{{SITE_URL}}/og.png">
+<meta property="og:url" content="{{SITE_URL}}/">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"{{NAME}}","jobTitle":"{{ROLE}}","url":"{{SITE_URL}}","sameAs":[{{SAME_AS_JSON}}]}
+</script>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="/">{{NAME}}</a>
+  <nav><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a><a href="{{CV_URL}}">CV</a></nav>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <h1>{{NAME}}</h1>
+    <p class="role">{{ROLE}}</p>
+    <p class="tagline">{{TAGLINE}}</p>
+  </section>
+  <section id="about">
+    <h2>About</h2>
+    {{ABOUT_HTML}}
+  </section>
+  <section id="work">
+    <h2>Work</h2>
+    <div class="cards">
+      {{WORK_ITEMS}}
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="links">{{LINKS}}</p>
+  </section>
+</main>
+<footer class="wrap"><p>{{NAME}}</p></footer>
+</body>
+</html>

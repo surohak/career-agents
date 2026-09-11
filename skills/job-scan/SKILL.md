@@ -80,3 +80,5 @@ For apply-now jobs: `draft` mode stops here; `assisted` asks which to continue; 
 `job-match` on each, then `cover-letter` and `job-apply` for those at 60 percent fit or more.
 
 Pipeline: follow the writer rules in the `application-tracker` skill and update `out/pipeline.md` accordingly.
+
+Other sources: `job-boards` feeds the same gates from feeds and career pages configured in `career.json` `boards`.

@@ -43,3 +43,11 @@ Return exactly one markdown table: `# | type | target | status (ok, mismatch, st
 needs_input, skipped) | evidence (URL or the text seen)`, then a one-line summary. Do not
 narrate. Never read or print cookies, local storage, tokens or other accounts' data. Never
 change account settings, email, password, or visibility settings beyond "Share with network".
+
+## selftest action
+
+A `selftest` action list (from the `operator-selftest` skill) opens each named dialog or page,
+reads the visible labels with `read_page` or `find`, compares them to the expected list, and
+closes the dialog with Cancel or Escape. Never type, never save, never click Post, Next or
+Submit during a self-test. Return `ok`, `changed` (list the labels actually found), `blocked`
+or `skipped` per check.

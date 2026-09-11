@@ -38,3 +38,5 @@ Output in chat: the table, three changes, and next week's routine from `out/grow
 with those changes applied. Update the plan file's "this week" block.
 
 Also: take the weekly `profile-history` snapshot, run `rejection-review`, and send the summary through `notify`.
+
+Also: read `out/runs.md` through `run-log` (`runlog.py <ws> --report 7`) and turn the top blocked reason into one change.

@@ -1,6 +1,6 @@
 ---
 name: content-engine
-description: Turn one real piece of work (a role, a project, a repo, a case study, a lesson) into a content set: a LinkedIn post, a carousel outline, a longer article, and a code snippet post, all from verified facts. Use when the user wants richer content, an article, a carousel, or "more from this project".
+description: Production only: from one real project make the full content set (post, carousel outline, article, code snippet post) in the person's voice. Called by linkedin-growth and talks-and-writing; use directly for one project's content.
 disable-model-invocation: false
 allowed-tools: "Read Write Grep Glob Bash(git log *) Bash(python3 *)"
 ---

@@ -9,3 +9,6 @@ out/
 
 # the fictional example ships its sample dumps
 !examples/**/sources/
+# workspace-only folders that must never be inside the plugin
+history/
+scripts/forbidden.local

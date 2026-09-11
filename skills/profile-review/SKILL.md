@@ -1,6 +1,6 @@
 ---
 name: profile-review
-description: Professional review of LinkedIn and the CV from a recruiter's point of view: keyword coverage for recruiter search, ATS parseability of the CV PDF, six-second first-screen test, section completeness, and a scored report with concrete rewrites. Use when the user asks how to make the profile more reachable, richer, stronger, or "review my profile / CV".
+description: Score only: LinkedIn and the CV from a recruiter view (search keyword coverage, ATS parseability of the PDF, six-second test, section completeness) with concrete rewrites. Called by career-review; use directly when the user wants just the score, not the three-way match.
 disable-model-invocation: false
 allowed-tools: "Read Write Bash(python3 *) Bash(pdftotext *) Bash(pdfinfo *) Bash(pdffonts *) Bash(pdftoppm *)"
 ---

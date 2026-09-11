@@ -1,0 +1,14 @@
+
+## Northwind Logistics | Senior Full-Stack Engineer  (03/2022 - Present; None)
+- same   intro: Carrier tracking platform used by dispatch teams to follow shipments i…
+- same   intro: Led the move from a jQuery monolith to React and TypeScript with a Gra…
+
+## Fintra Payments | Full-Stack Engineer  (06/2018 - 01/2022; None)
+- FACT dates: LinkedIn '06/2018 - 01/2022' | CV: 06/2018 - 02/2022
+- same   intro: Merchant payments dashboard for reconciliation and payouts…
+- CHANGED intro (0.94): Cut dashboard load time from [-4.1-] {+4+} s to 1.2 … to Postgres views
+
+## CV-only text (no LinkedIn match, >= 8 words)
+- CV canonical text Header Alex Rivera, Senior Full-Stack Engineer Lisbon, Portugal alex@alexrivera.example linkedin.com/in/alex-rivera-example alexrivera.example Summary Full-stack engineer shipping logistics and fintech web products since 2018. React and Type Script on the front end, Node.js and PostgreSQL behind it, deployed on AWS. Experience Northwind Logistics, Senior Full-Stack Engineer Mar 2022 to Present Remote
+- Built the shared design system now used by two products Stack: React, Type Script, Node.js, GraphQL, PostgreSQL, AWS Fintra Payments, Full-Stack Engineer Jun 2018 to Feb 2022 Lisbon, Portugal
+- Added SEPA payout flow with audit log Stack: React, Node.js, PostgreSQL, Docker Education BSc Computer Science, University of Lisbon, 2018 Skills Languages: Type Script, Java Script, SQL. Frameworks: React, Node.js, GraphQL. Infra: AWS, Docker, PostgreSQL. Languages English: C2 Portuguese: native Spanish: B2

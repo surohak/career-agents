@@ -34,7 +34,8 @@
       "remote",
       "<country>"
     ],
-    "engagement": "employee"
+    "engagement": "employee",
+    "track": "ic"
   },
   "rules": {
     "no_em_dash": true,
@@ -96,5 +97,20 @@
       "22:00",
       "07:00"
     ]
+  },
+  "notes": {
+    "tool": "none",
+    "target": "",
+    "include": [
+      "pipeline",
+      "interviews",
+      "reviews",
+      "plans"
+    ]
+  },
+  "boards": {
+    "feeds": [],
+    "career_pages": [],
+    "mcp": []
   }
 }

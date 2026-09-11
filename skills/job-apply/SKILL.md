@@ -32,3 +32,5 @@ Never apply to a job that failed a gate, never apply twice to the same posting, 
 an answer to a screening question.
 
 Pipeline: follow the writer rules in the `application-tracker` skill and update `out/pipeline.md` accordingly.
+
+Pre-flight (assisted and auto): run `operator-selftest` first unless a passing self-test is younger than 24 hours; stop on `changed` or `blocked`.

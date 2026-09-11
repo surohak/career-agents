@@ -45,12 +45,20 @@ in this conversation.
 | 28 | Contract | `contract-mode` | `out/contract/` | services page under `approvals.linkedin_edit` |
 | 29 | Several people | `cohort` | `board.md`, `board.html` | one workspace at a time, strict separation |
 | 30 | Video | `video-intro` | `out/video/`, thumbnail | person records; upload under `approvals.linkedin_edit` |
+| 31 | Tracks | `manager-track`, `early-career` | `positioning.md` rewritten for the track, `out/<track>.md` | rules for all other stages |
+| 32 | Site from scratch | `portfolio-site` | a static site repo, `site.url` filled | publish under `approvals.site_push` |
+| 33 | Where | `relocation-planner` | `out/relocation-*.md` | information only |
+| 34 | References | `reference-prep` | `out/references-*.md` | asks under `approvals.message` |
+| 35 | Inputs | `voice-notes`, `notes-sync`, `job-boards` | transcripts routed, notes mirrored, board jobs gated | one way; boards under `approvals.apply` |
+| 36 | Self-check | `operator-selftest`, `run-log` | `out/selftest-*.md`, `out/runs.md` | read-only |
 
 ## How to run
 
 1. Locate the workspace: the current directory if it has `career.json`, else ask for the path,
    else offer to run `career-setup`. Run `${CLAUDE_PLUGIN_ROOT}/scripts/verify_kernel.sh <ws>`.
-2. Read `profile/MEMORY.md`, then `constraints.md`, `voice.md`, `positioning.md`. Always.
+2. Read `profile/MEMORY.md`, then `constraints.md`, `voice.md`, `positioning.md`. Always. Read
+   `career.json` `target.track`; if it is not `ic`, the `manager-track` or `early-career` rules apply
+   to every stage. See `docs/skills-map.md` for which skill to call when.
 3. Ask which stage to start from if the user did not say. Default for a new person: 15 (`intake`)
    then 16 (`career-review`). Default otherwise: 16, which covers stages 1, 2 and 11 in one pass,
    then stop and show the scores, the match matrix and the top fixes. Do not chain into rebuild or CV changes without the user choosing findings.

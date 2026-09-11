@@ -24,6 +24,9 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - Unattended: scheduled daily and weekly runs, digests to Slack, Telegram, email or a file, recruiter email and calendar invites synced into the pipeline through mail and calendar MCP servers
 - Better decisions: salary ranges from posted job data, warm referral paths, interview debriefs with a real question bank, rejection pattern analysis, per-application CV variants, six-week project-based learning plans
 - Hygiene and more: GitHub profile review, web footprint audit, LinkedIn field history with restore, contract and freelance mode, cohort mode for coaches, intro video script and shot list
+- Tracks: management (team outcomes as proof), early career and career change (projects as proof); a portfolio site generated from the kernel for people with no website; relocation planning from what job posts say; reference prep
+- Inputs beyond typing: voice notes transcribed and routed, notes mirrored to Obsidian or Notion, job feeds and career pages through the same gates
+- Reliability: an operator self-test before every write session, a run log the weekly review reads, 12 eval cases, a smoke script with expected outputs, a generated skill reference and a docs site
 
 Three automation modes, set per person in `career.json`: `draft` (files only, the person applies
 by hand), `assisted` (everything executed through MCP and browser, one yes per action), `auto`
@@ -98,7 +101,20 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:contract-mode         # rate card, services page, proposals, marketplace profiles
 /career-agents:cohort                # several workspaces, one board, strict separation
 /career-agents:video-intro           # 60-second script, shot list, captions, thumbnail
+/career-agents:manager-track         # rules for EM / director / CTO candidates
+/career-agents:early-career          # rules for students, first job, career changers
+/career-agents:portfolio-site        # static site from the kernel, deployed to GitHub Pages
+/career-agents:relocation-planner    # realistic markets from authorization and job posts
+/career-agents:reference-prep        # who to list, briefing notes, ask messages, timing
+/career-agents:voice-notes           # audio in, transcript routed to the right skill
+/career-agents:notes-sync            # mirror outputs to Obsidian or Notion, one way
+/career-agents:job-boards            # feeds and career pages through the job-scan gates
+/career-agents:operator-selftest     # LinkedIn UI still matches the protocol, read-only
+/career-agents:run-log               # what ran, what got stuck, pacing budget used
 ```
+
+See [docs/skills-map.md](docs/skills-map.md) for which skill to use when, and
+[docs/reference/skills.md](docs/reference/skills.md) for the generated one-line reference.
 
 The workspace is a private folder (`career.json`, `profile/`, `sources/`, `out/`) that lives
 outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
@@ -108,8 +124,8 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       53 skills       agents/*.md        3 read-only agents + linkedin-operator
-evals/                       plugin eval cases on the fictional example (claude plugin eval .)
+skills/<name>/SKILL.md       63 skills       agents/*.md        3 read-only agents + linkedin-operator
+evals/                       12 plugin eval cases on the fictional example (claude plugin eval .)
 scripts/                     fetch, diff, site text, banner, verify, new workspace
 templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, pipeline, rejections, question bank, cohort, metrics, banner HTML, post cards
 docs/                        flow, automation modes, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
@@ -126,6 +142,10 @@ docs/                        flow, automation modes, adapters (canva, docx, mark
 | `scripts/site_text.py <url>` | stdlib crawler that dumps a personal site's visible text |
 | `scripts/render_banner.sh in.html out.png` | headless Chrome render at 2x (`BANNER_W`/`BANNER_H` for cards and OG images) |
 | `scripts/dashboard.py <workspace>` | self-contained HTML dashboard from the markdown logs |
+| `scripts/smoke.sh [--update]` | runs every deterministic part on the example and diffs against expected outputs |
+| `scripts/gen_reference.py [--check]` | generates docs/reference/skills.md from frontmatter |
+| `scripts/runlog.py <workspace> --skill ...` | appends a run row; `--report 7` summarises the week |
+| `scripts/rss_jobs.py <feed>` | RSS, Atom or JSON job feed to a list, stdlib only |
 
 ## Safety model
 

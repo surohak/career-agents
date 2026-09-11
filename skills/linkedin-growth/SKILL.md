@@ -1,6 +1,6 @@
 ---
 name: linkedin-growth
-description: Build and maintain a 90-day LinkedIn growth strategy: weekly routine, target accounts and companies to engage with, connection note drafts, comment drafts, and success metrics. Use when the user asks how to grow on LinkedIn, get more recruiter traffic, or wants a plan rather than one post. Drafts only, nothing is sent.
+description: The plan and the routine, not the writing: 90-day LinkedIn growth plan with target accounts, weekly cadence, engagement rules and success metrics. Delegates production to content-engine and linkedin-post. Use when the user asks for strategy, reach or a routine.
 disable-model-invocation: false
 allowed-tools: "Read Write Bash(python3 *)"
 ---

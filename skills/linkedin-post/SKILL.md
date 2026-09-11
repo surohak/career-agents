@@ -43,3 +43,5 @@ before "see more", so the hook and second line must carry the point).
 - If the user gave no topic in `auto` mode, pick the top candidate yourself using the theme
   rotation rule and the best-performing theme in `out/metrics.md`, and say which you picked.
 The operator returns the post URL; append it to `out/linkedin-log.md` with date and topic.
+
+Pre-flight (assisted and auto): run `operator-selftest` first unless a passing self-test is younger than 24 hours; stop on `changed` or `blocked`.
