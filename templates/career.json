@@ -1,0 +1,33 @@
+{
+  "person": {
+    "name": "<Full Name>",
+    "linkedin_url": "https://www.linkedin.com/in/<handle>/",
+    "location": "<City, Country>",
+    "email_public": false
+  },
+  "cv": {
+    "adapter": "markdown",
+    "source": "profile/cv-canonical.md",
+    "output": "out/cv.pdf",
+    "canva_design_id": "",
+    "docx_path": ""
+  },
+  "site": {
+    "url": "",
+    "repo": "",
+    "content_paths": [],
+    "chatbot_knowledge_base": ""
+  },
+  "target": {
+    "role": "<Target job title>",
+    "keywords": ["<keyword 1>", "<keyword 2>"],
+    "markets": ["remote", "<country>"]
+  },
+  "rules": {
+    "no_em_dash": true,
+    "no_invented_metrics": true,
+    "no_open_to_work_phrases": true,
+    "never_autopost": true,
+    "years_of_experience_in_copy": false
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>LinkedIn banner</title>
+<style>
+  /* LinkedIn cover: 1584x396. Safe zone: keep text out of the bottom-left 400x160 (avatar) and
+     the right 120px on mobile. Render with scripts/render_banner.sh */
+  :root { --bg1:#0f172a; --bg2:#1e293b; --fg:#f8fafc; --accent:#38bdf8; --muted:#94a3b8; }
+  html,body { margin:0; width:1584px; height:396px; overflow:hidden; }
+  body { background:linear-gradient(120deg,var(--bg1),var(--bg2)); color:var(--fg);
+         font-family:-apple-system,"Segoe UI",Inter,Helvetica,Arial,sans-serif; }
+  .wrap { position:absolute; left:440px; top:70px; right:140px; }
+  h1 { margin:0; font-size:54px; font-weight:700; letter-spacing:-0.5px; }
+  h1 span { color:var(--accent); }
+  p.tag { margin:14px 0 0; font-size:26px; color:var(--muted); }
+  ul { list-style:none; padding:0; margin:34px 0 0; display:flex; gap:18px; flex-wrap:wrap; }
+  li { border:2px solid var(--accent); border-radius:999px; padding:8px 20px; font-size:22px; }
+  .site { position:absolute; right:140px; bottom:36px; font-size:22px; color:var(--muted); }
+</style></head>
+<body>
+  <div class="wrap">
+    <h1>{{TITLE}} <span>{{FOCUS}}</span></h1>
+    <p class="tag">{{TAGLINE}}</p>
+    <ul>
+      <li>{{PILL_1}}</li><li>{{PILL_2}}</li><li>{{PILL_3}}</li><li>{{PILL_4}}</li>
+    </ul>
+  </div>
+  <div class="site">{{SITE}}</div>
+</body></html>

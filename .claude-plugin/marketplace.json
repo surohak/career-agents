@@ -1,0 +1,13 @@
+{
+  "name": "career-agents",
+  "owner": { "name": "career-agents maintainers" },
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "career-agents",
+      "source": "./",
+      "description": "LinkedIn + CV + personal website sync flow for Claude Code",
+      "version": "0.1.0"
+    }
+  ]
+}

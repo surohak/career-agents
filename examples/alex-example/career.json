@@ -1,0 +1,12 @@
+{
+  "person": {
+    "name": "Alex Rivera",
+    "linkedin_url": "https://www.linkedin.com/in/alex-rivera-example/",
+    "location": "Lisbon, Portugal",
+    "email_public": true
+  },
+  "cv": { "adapter": "markdown", "source": "profile/cv-canonical.md", "output": "out/cv.pdf", "canva_design_id": "", "docx_path": "" },
+  "site": { "url": "https://alexrivera.example", "repo": "", "content_paths": [], "chatbot_knowledge_base": "" },
+  "target": { "role": "Senior Full-Stack Engineer", "keywords": ["TypeScript", "React", "Node.js", "PostgreSQL", "AWS"], "markets": ["remote EU"] },
+  "rules": { "no_em_dash": true, "no_invented_metrics": true, "no_open_to_work_phrases": true, "never_autopost": true, "years_of_experience_in_copy": false }
+}
