@@ -1,0 +1,6 @@
+{
+  "people": [
+    { "name": "<Name>", "path": "./<workspace-folder>", "mode": "draft" }
+  ],
+  "notify": { "channel": "file", "target": "board-digests.md" }
+}

@@ -50,8 +50,30 @@ flowchart TD
   S15 --> S35[talks-and-writing]
   S17 --> S36[dashboard<br/>dashboard.html]
   S24 --> S36
+  S37[career-cron] --> S10
+  S37 --> S24
+  S37 --> S17
+  S37 --> S38[notify<br/>digest]
+  S39[inbox-sync<br/>mail + calendar MCP] --> S24
+  S39 --> S12
+  S10 --> S40[salary-benchmark]
+  S40 --> S28
+  S24 --> S41[referral-finder<br/>gated]
+  S12 --> S42[interview-debrief]
+  S42 --> S27
+  S42 --> S43[rejection-review]
+  S43 --> S18
+  S18 --> S44[learning-plan]
+  S11 --> S45[cv-tailor<br/>copy per job]
+  S45 --> S21
+  S20 --> S46[profile-history<br/>snapshots, restore]
+  S23 --> S47[github-review]
+  S23 --> S48[footprint-audit]
+  S40 --> S49[contract-mode]
+  S13 --> S50[video-intro]
+  S51[cohort<br/>many workspaces] --> S22
   classDef gate fill:#fde68a,stroke:#b45309,color:#000;
-  class S3,S5,S6,S26,S30 gate;
+  class S3,S5,S6,S26,S30,S37,S41,S45 gate;
 ```
 
 Yellow nodes are where the automation mode decides: `draft` stops with a file, `assisted` asks

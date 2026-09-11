@@ -21,6 +21,9 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - Application pipeline with stages, follow-up dates and a daily due list; company briefs; hiring-manager outreach; recommendation requests
 - Interview prep per stage (HR screen, hiring manager, tech 1 and 2, EM, PM or PO, CTO or Head of Engineering, final) from a pasted invite or the LinkedIn inbox, then a mock interview in chat scored against STAR
 - Offer comparison and negotiation script; headline A/B test on real analytics; post visuals (quote, code and steps cards); talks and long-form calendar; second-language profile and CV; other platforms (GitHub README, Wellfound, Indeed, Xing, dev.to); site SEO; a private dashboard
+- Unattended: scheduled daily and weekly runs, digests to Slack, Telegram, email or a file, recruiter email and calendar invites synced into the pipeline through mail and calendar MCP servers
+- Better decisions: salary ranges from posted job data, warm referral paths, interview debriefs with a real question bank, rejection pattern analysis, per-application CV variants, six-week project-based learning plans
+- Hygiene and more: GitHub profile review, web footprint audit, LinkedIn field history with restore, contract and freelance mode, cohort mode for coaches, intro video script and shot list
 
 Three automation modes, set per person in `career.json`: `draft` (files only, the person applies
 by hand), `assisted` (everything executed through MCP and browser, one yes per action), `auto`
@@ -80,6 +83,21 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:headline-test         # two-week A/B on search appearances (assisted/auto)
 /career-agents:post-visuals          # quote / code / steps cards rendered to PNG for posts
 /career-agents:dashboard             # private HTML page from metrics, pipeline and post log
+/career-agents:career-cron           # daily scan + due list, weekly review, on a schedule
+/career-agents:notify                # digest to Slack / Telegram / email / file
+/career-agents:inbox-sync            # recruiter email and calendar invites into the pipeline
+/career-agents:salary-benchmark      # ranges from job posts that state one, labelled by sample size
+/career-agents:referral-finder       # warm paths into a company, intro drafts, gated
+/career-agents:interview-debrief     # thank-you note, question log, self-score, next step
+/career-agents:rejection-review      # where the funnel drops and which skill fixes it
+/career-agents:cv-tailor             # per-application CV copy, wording only, facts identical
+/career-agents:learning-plan         # six weeks, one gap, real proof at the end
+/career-agents:github-review         # recruiter-view GitHub audit and fixes
+/career-agents:footprint-audit       # what a name search shows, what to unify or close
+/career-agents:profile-history       # LinkedIn field snapshots, diff, blame, restore
+/career-agents:contract-mode         # rate card, services page, proposals, marketplace profiles
+/career-agents:cohort                # several workspaces, one board, strict separation
+/career-agents:video-intro           # 60-second script, shot list, captions, thumbnail
 ```
 
 The workspace is a private folder (`career.json`, `profile/`, `sources/`, `out/`) that lives
@@ -90,10 +108,10 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       38 skills       agents/*.md        3 read-only agents + linkedin-operator
+skills/<name>/SKILL.md       53 skills       agents/*.md        3 read-only agents + linkedin-operator
 evals/                       plugin eval cases on the fictional example (claude plugin eval .)
 scripts/                     fetch, diff, site text, banner, verify, new workspace
-templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, pipeline, metrics, banner HTML, post cards
+templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, pipeline, rejections, question bank, cohort, metrics, banner HTML, post cards
 docs/                        flow, automation modes, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
 ```
 

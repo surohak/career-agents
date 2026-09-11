@@ -37,6 +37,14 @@ in this conversation.
 | 20 | Content plus | `post-visuals`, `talks-and-writing`, `multilingual` | `out/cards/`, `out/talks.md`, `out/i18n/` | by mode |
 | 21 | Offer | `offer-review` | `out/offer-*.md` | not financial advice |
 | 22 | Dashboard | `dashboard` | `out/dashboard.html` | private |
+| 23 | Unattended | `career-cron`, `notify`, `inbox-sync` | scheduled runs, `out/digests.md`, pipeline rows from email, calendar events | system changes shown before install; sends under `approvals.message` |
+| 24 | Decisions | `salary-benchmark`, `referral-finder`, `interview-debrief`, `rejection-review` | `out/salary-benchmark-*.md`, `out/referrals-*.md`, `out/debrief-*.md`, `out/rejections.md` | messages under `approvals.message` |
+| 25 | Per-application CV | `cv-tailor` | `out/cv-<company>.pdf` as a copy | facts identical to canonical |
+| 26 | Learning | `learning-plan` | `out/learning-plan-*.md`, checkpoints in the pipeline | drafts |
+| 27 | Hygiene | `github-review`, `footprint-audit`, `profile-history` | `out/github-review-*.md`, `out/footprint-*.md`, `history/linkedin/` | repo pushes under `approvals.site_push`; restores under `approvals.linkedin_edit` |
+| 28 | Contract | `contract-mode` | `out/contract/` | services page under `approvals.linkedin_edit` |
+| 29 | Several people | `cohort` | `board.md`, `board.html` | one workspace at a time, strict separation |
+| 30 | Video | `video-intro` | `out/video/`, thumbnail | person records; upload under `approvals.linkedin_edit` |
 
 ## How to run
 
@@ -59,7 +67,7 @@ except actions whose `approvals` flag is true. Stages that execute: `linkedin-ap
 `linkedin-post` (publish), `linkedin-growth` (comments, connection notes), `recruiter-reply`
 (send), `job-apply`, `weekly-review` (analytics read), `cv-update`, `site-sync`. In `auto` mode
 the flow runs end to end: fetch, audit, review, rebuild, apply, verify, banner, CV, site, growth
-plan, then a first batch of posts, a job scan into the pipeline, the daily due list, and stops only at gated approvals or a
+plan, then a first batch of posts, a job scan into the pipeline, the daily due list, a `notify` digest, and stops only at gated approvals or a
 `blocked` browser status.
 
 ## Rules that apply to every stage

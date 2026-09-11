@@ -9,7 +9,8 @@ allowed-tools: "Read Write"
 
 Inputs: `out/interview-<company>-<stage>-*.md` if present; else run `interview-prep` first from
 whatever the user gives (a pasted invite, a LinkedIn message, or "stage at company"), then
-start. Also `positioning.md`, `constraints.md`.
+start. Also `positioning.md`, `constraints.md`, and `out/question-bank.md` (real questions logged by
+`interview-debrief`; use them first for the same company or stage).
 
 ## Play the interviewer
 

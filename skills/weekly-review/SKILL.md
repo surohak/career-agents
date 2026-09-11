@@ -36,3 +36,5 @@ Rules of thumb, adjusted by the data:
 
 Output in chat: the table, three changes, and next week's routine from `out/growth-plan.md`
 with those changes applied. Update the plan file's "this week" block.
+
+Also: take the weekly `profile-history` snapshot, run `rejection-review`, and send the summary through `notify`.

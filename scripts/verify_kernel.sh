@@ -17,6 +17,12 @@ for k in ("person", "cv", "target"):
 if not d["person"].get("name"): print("career.json: person.name is empty"); sys.exit(1)
 if "search" not in d or not d.get("person", {}).get("timezone"):
     print("career.json: no 'search' block or person.timezone; job-scan will ask for them (not fatal)")
+sch = d.get("schedule", {})
+if sch and sch.get("runner") not in ("scheduled-tasks", "cron", "launchd"):
+    print("career.json: schedule.runner must be scheduled-tasks | cron | launchd"); sys.exit(1)
+nt = d.get("notify", {})
+if nt and nt.get("channel") not in ("slack", "telegram", "email", "file", "none"):
+    print("career.json: notify.channel must be slack | telegram | email | file | none"); sys.exit(1)
 a = d.get("automation", {})
 if a.get("mode", "draft") not in ("draft", "assisted", "auto"):
     print("career.json: automation.mode must be draft | assisted | auto"); sys.exit(1)

@@ -33,7 +33,8 @@
     "markets": [
       "remote",
       "<country>"
-    ]
+    ],
+    "engagement": "employee"
   },
   "rules": {
     "no_em_dash": true,
@@ -65,5 +66,35 @@
       "cv_commit": false,
       "site_push": false
     }
+  },
+  "schedule": {
+    "enabled": false,
+    "daily_at": "08:00",
+    "weekly_review_day": "monday",
+    "jobs": [
+      "job-scan",
+      "application-tracker",
+      "dashboard"
+    ],
+    "weekly": [
+      "weekly-review",
+      "rejection-review",
+      "dashboard"
+    ],
+    "runner": "scheduled-tasks"
+  },
+  "notify": {
+    "channel": "file",
+    "target": "out/digests.md",
+    "on": [
+      "run_end",
+      "reply_received",
+      "interview_scheduled",
+      "blocked"
+    ],
+    "quiet_hours": [
+      "22:00",
+      "07:00"
+    ]
   }
 }

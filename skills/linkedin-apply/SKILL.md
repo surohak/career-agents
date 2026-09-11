@@ -37,3 +37,5 @@ Delegate the list to the `linkedin-operator` agent. Respect its pacing. If it re
 Run `profile-fetch` fresh and `profile-audit`. Every applied action should now show `same` in
 the differ. Anything `mismatch` or `stale` goes into the next round's "what is left" list.
 Update `out/status.md` and `out/apply-log.md`.
+
+History: snapshot the profile before the first edit and after the last, as described in `profile-history`.

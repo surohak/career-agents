@@ -66,3 +66,11 @@ Real accounts get temporary restrictions when they edit or post at machine speed
 above and the one-field-at-a-time protocol are there to look human, but the person accepts the
 risk when they set `mode` to `assisted` or `auto`. Job applications sent unattended cannot be
 recalled; keep `apply: true` unless the person has reviewed `job-match` output for the batch.
+
+## Unattended runs, mail and calendar (0.5.0)
+
+`career-cron` schedules the daily and weekly skill lists in `career.json` `schedule`. Installing
+a cron or launchd entry is a system change and is always shown before it is applied. `inbox-sync`
+reads recruiter mail and invites through whatever mail and calendar MCP servers the person has
+connected; it never receives passwords and never accepts or declines slots on its own. `notify`
+sends digests only to the configured target, without message bodies or CV text.

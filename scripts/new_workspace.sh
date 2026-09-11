@@ -4,7 +4,7 @@
 set -euo pipefail
 DEST="${1:?destination dir}"
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
-mkdir -p "$DEST"/{profile,sources,out}
+mkdir -p "$DEST"/{profile,sources,out,history}
 for f in "$HERE"/templates/profile/*.md; do
   [[ -e "$DEST/profile/$(basename "$f")" ]] || cp "$f" "$DEST/profile/"
 done
@@ -13,6 +13,7 @@ done
 # LinkedIn dumps, CV text and rendered outputs contain personal data.
 sources/
 out/
+history/
 *.pdf
 GI
 echo "workspace ready at $DEST"
