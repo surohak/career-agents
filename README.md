@@ -26,6 +26,7 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - Hygiene and more: GitHub profile review, web footprint audit, LinkedIn field history with restore, contract and freelance mode, cohort mode for coaches, intro video script and shot list
 - Tracks: management (team outcomes as proof), early career and career change (projects as proof); a portfolio site generated from the kernel for people with no website; relocation planning from what job posts say; reference prep
 - Inputs beyond typing: voice notes transcribed and routed, notes mirrored to Obsidian or Notion, job feeds and career pages through the same gates
+- For everyone: a `start` command that asks three questions and sets everything up; approvals answered from the phone through the digest channel; a recruiter-view render of the headline and top card; one-command export or deletion of everything held
 - Reliability: an operator self-test before every write session, a run log the weekly review reads, 12 eval cases, a smoke script with expected outputs, a generated skill reference and a docs site
 
 Three automation modes, set per person in `career.json`: `draft` (files only, the person applies
@@ -111,6 +112,10 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:job-boards            # feeds and career pages through the job-scan gates
 /career-agents:operator-selftest     # LinkedIn UI still matches the protocol, read-only
 /career-agents:run-log               # what ran, what got stuck, pacing budget used
+/career-agents:start                 # non-technical onboarding: three questions, then it runs
+/career-agents:digest-replies        # "yes 1 3, skip 2" from Slack or Telegram executes the queue
+/career-agents:recruiter-view        # the profile as a search result and top card, as PNG
+/career-agents:workspace-export      # zip of everything, or a dry-run then wipe
 ```
 
 See [docs/skills-map.md](docs/skills-map.md) for which skill to use when, and
@@ -124,7 +129,7 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       63 skills       agents/*.md        3 read-only agents + linkedin-operator
+skills/<name>/SKILL.md       67 skills       agents/*.md        3 read-only agents + linkedin-operator
 evals/                       12 plugin eval cases on the fictional example (claude plugin eval .)
 scripts/                     fetch, diff, site text, banner, verify, new workspace
 templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, pipeline, rejections, question bank, cohort, metrics, banner HTML, post cards

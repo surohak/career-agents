@@ -3,13 +3,13 @@
   "owner": {
     "name": "surohak"
   },
-  "version": "0.6.0",
+  "version": "0.7.0",
   "plugins": [
     {
       "name": "career-agents",
       "source": "./",
       "description": "LinkedIn + CV + personal website sync flow for Claude Code",
-      "version": "0.6.0"
+      "version": "0.7.0"
     }
   ]
 }

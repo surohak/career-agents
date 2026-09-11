@@ -26,3 +26,5 @@ Needs `out/metrics.md` with at least 2 weeks of baseline and automation mode `as
 
 Limits: one test at a time, headline or About line, never the name or current title (search
 matching depends on them). Record everything in `out/headline-test.md`.
+
+Recruiter view: render the headline variants with `recruiter-view` so the cut-off point is judged on an image, not a guess.

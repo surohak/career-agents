@@ -51,6 +51,8 @@ in this conversation.
 | 34 | References | `reference-prep` | `out/references-*.md` | asks under `approvals.message` |
 | 35 | Inputs | `voice-notes`, `notes-sync`, `job-boards` | transcripts routed, notes mirrored, board jobs gated | one way; boards under `approvals.apply` |
 | 36 | Self-check | `operator-selftest`, `run-log` | `out/selftest-*.md`, `out/runs.md` | read-only |
+| 37 | First contact | `start` | workspace, track, mode, first review, in plain words | hides the rest until asked |
+| 38 | From the phone | `digest-replies`, `recruiter-view`, `workspace-export` | approvals from the channel, search-result renders, zip or wipe | replies act on one queued row; delete needs a typed confirmation |
 
 ## How to run
 

@@ -41,3 +41,5 @@ Blocked: <login expired, captcha, rate limit> or none
 Never include CV text, message bodies from recruiters, or names of contacts in the digest; link
 to the workspace file instead. Respect quiet hours by deferring to the next run. If the channel
 MCP is not connected, say so once and write the file.
+
+Queue: gated actions are numbered in `out/queue.md` so `digest-replies` can approve them from the channel.

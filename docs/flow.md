@@ -82,6 +82,12 @@ flowchart TD
   S57[manager-track / early-career<br/>track rules] --> S3
   S57 --> S13
   S58[portfolio-site] --> S6
+  S59[start<br/>three questions] --> S1
+  S59 --> S23
+  S40 --> S60[digest-replies<br/>yes 1 3, skip 2]
+  S60 --> S20
+  S61[recruiter-view<br/>PNG] --> S3
+  S62[workspace-export<br/>zip or wipe]
   S24 --> S59[reference-prep]
   S10 --> S60[relocation-planner]
   classDef gate fill:#fde68a,stroke:#b45309,color:#000;
