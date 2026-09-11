@@ -51,5 +51,19 @@
     "work_type": "remote",
     "experience_level": "mid_senior",
     "max_applicants": 10
+  },
+  "automation": {
+    "mode": "assisted",
+    "browser": "claude-in-chrome",
+    "approvals": {
+      "linkedin_edit": false,
+      "post": false,
+      "comment": false,
+      "connect": true,
+      "message": true,
+      "apply": true,
+      "cv_commit": false,
+      "site_push": false
+    }
   }
 }

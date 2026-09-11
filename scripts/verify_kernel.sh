@@ -17,6 +17,11 @@ for k in ("person", "cv", "target"):
 if not d["person"].get("name"): print("career.json: person.name is empty"); sys.exit(1)
 if "search" not in d or not d.get("person", {}).get("timezone"):
     print("career.json: no 'search' block or person.timezone; job-scan will ask for them (not fatal)")
+a = d.get("automation", {})
+if a.get("mode", "draft") not in ("draft", "assisted", "auto"):
+    print("career.json: automation.mode must be draft | assisted | auto"); sys.exit(1)
+if a.get("mode") in ("assisted", "auto") and a.get("browser", "none") == "none":
+    print("career.json: automation.browser is none; LinkedIn profile edits and posts fall back to draft")
 if d["cv"].get("adapter") not in ("canva", "docx", "markdown", "html", "pdf-only", "google-docs"):
     print("career.json: cv.adapter must be canva | docx | markdown | html | google-docs | pdf-only"); sys.exit(1)
 PY

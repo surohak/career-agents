@@ -8,8 +8,9 @@ allowed-tools: "Read Write"
 # Recruiter reply
 
 Read `identity.md`, `positioning.md`, `voice.md`, `constraints.md`, `cv-canonical.md` and
-`out/jobs.md`. Input: the pasted message and, if included, the job description or link
-(if a LinkedIn job URL and the MCP tools are available, `get_job_details` once).
+`out/jobs.md`. Input: a pasted message, or, with no input, the LinkedIn inbox: `get_inbox`
+once, then `get_conversation` for unanswered threads from the last 14 days that mention a
+role, job, opportunity or position. If the message includes a job link, `get_job_details` once.
 
 ## 1. Gates first
 
@@ -37,7 +38,11 @@ Under 120 words for LinkedIn messages, under 200 for email. First person, `voice
 no em dashes, no exclamation marks, no "I'm looking for". Never share phone number, never
 share employer internals, never attach the CV without the user's yes.
 
-## 4. After
+## 4. Send by mode
 
-Never send. When the user says it was sent, add one line to `out/jobs.md` under
-"Waiting on the user" or "In progress": date, company, role, stage.
+- `draft`: the user sends by hand.
+- `assisted`: show the final reply, one yes per thread, then `send_message` through the LinkedIn MCP.
+- `auto`: send unless `approvals.message` is true (default on). Declines and clarifying questions
+  are low risk; interested and negotiate replies should stay gated unless the person decided otherwise.
+Log each sent reply to `out/jobs.md` under "In progress": date, company, role, stage. Never
+send the CV file itself; point to the site or offer to send on request.

@@ -37,5 +37,6 @@ pdftoppm -png -r 60 out/cv.pdf out/cv-preview        # then Read the PNG(s) and 
 - Never add text boxes or pages; edit existing text so the layout holds.
 - Preserve the person's formatting (bold company names, dates alignment).
 - No em dashes, no ligature characters in the source text, no invented numbers.
-- A commit/finalize/export/overwrite needs an explicit yes in this conversation. "Go ahead" for
-  the edit list is not a yes for export; ask again.
+- Commit/finalize/export/overwrite: `draft` and `assisted` need an explicit yes in this
+  conversation ("go ahead" for the edit list is not a yes for export). `auto` proceeds unless
+  `approvals.cv_commit` is true. A backup copy of the design or document is made first in every mode.

@@ -1,8 +1,8 @@
 {
   "name": "career-agents",
   "displayName": "Career Agents",
-  "description": "Reusable Claude Code flow for a person's career: sync LinkedIn, CV and personal website, rebuild LinkedIn copy and banner, recruiter-view profile review, 90-day growth plan, posts and content sets, gated job scan and match, cover letters, recruiter replies, interview prep, weekly metrics loop. Read-only agents, human approves every write.",
-  "version": "0.2.0",
+  "description": "Reusable Claude Code flow for a person's career: sync LinkedIn, CV and personal website, rebuild LinkedIn copy and banner, recruiter-view profile review, 90-day growth plan, posts and content sets, gated job scan and match, cover letters, recruiter replies, interview prep, weekly metrics loop. Three automation modes: draft, assisted, auto; a browser operator agent applies LinkedIn writes.",
+  "version": "0.3.0",
   "license": "MIT",
   "keywords": [
     "linkedin",

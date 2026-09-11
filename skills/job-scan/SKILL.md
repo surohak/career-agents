@@ -76,4 +76,5 @@ Buckets: **Apply now**, **Need a look** (Location UNKNOWN, quote the line), **Ge
 
 Then update `out/jobs.md`: date, query, counts per bucket, one line per Fit YES job, and a
 "Waiting on the user" list. Replace the "Last scan" section, do not append forever.
-For any apply-now job the user picks, hand off to `cover-letter`.
+For apply-now jobs: `draft` mode stops here; `assisted` asks which to continue; `auto` runs
+`job-match` on each, then `cover-letter` and `job-apply` for those at 60 percent fit or more.

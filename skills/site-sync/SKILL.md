@@ -28,8 +28,9 @@ For each accepted finding edit the source file. Keep the site's own code style. 
 like `update_resume.sh` exists in the repo for copying the PDF, use it instead of copying by hand.
 Run the site's build (`npm run build` or equivalent) and report the result.
 
-Show `git diff --stat` and the full diff of content files. Then ask: commit? push? Two separate
-yeses. Never push to a branch the user did not name. Never `git remote add`.
+Show `git diff --stat` and the full diff of content files. `draft` and `assisted`: ask commit?
+push? as two separate yeses. `auto`: commit and push to the current branch unless
+`approvals.site_push` is true. Never push to a branch the user did not name. Never `git remote add`.
 
 ## 3. Verify
 

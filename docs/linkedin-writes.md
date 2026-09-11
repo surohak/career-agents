@@ -1,5 +1,7 @@
 # Writing to LinkedIn
 
+See `docs/automation.md` for the modes. This page explains the channels.
+
 There is no API for editing your own profile, and the bundled MCP server is read-only for
 profile fields. Two paths:
 
@@ -9,9 +11,9 @@ profile fields. Two paths:
 save. Before saving experience edits switch off "Share with network" (it is a toggle in the edit
 dialog and a setting under Settings > Visibility > Share profile updates).
 
-## 2. Browser automation (Claude in Chrome or similar), opt-in
+## 2. Browser automation (Claude in Chrome or Playwright), `assisted` or `auto` mode
 
-Only when the person asks. Rules the skill follows:
+The `linkedin-operator` agent applies edits. Rules it follows:
 
 - One field per save. Show the old and new text before typing.
 - Stop at any unexpected page (login, captcha, "confirm it is you"). Never solve captchas.
@@ -22,8 +24,8 @@ Only when the person asks. Rules the skill follows:
 ## What the MCP server can do
 
 Read: own profile, any public profile, company pages, job search and job details, feed, inbox.
-Write tools exist (`send_message`, `connect_with_person`) but this plugin never calls them.
-If you want to be safe, deny them in your settings:
+Write tools (`send_message`, `connect_with_person`) are used by `recruiter-reply` and
+`linkedin-growth` under the approvals in `career.json`. To hard-block them regardless of mode:
 
 ```json
 { "permissions": { "deny": ["mcp__linkedin__send_message", "mcp__linkedin__connect_with_person"] } }

@@ -38,4 +38,8 @@ Profile views and search appearances (LinkedIn analytics, user reads them), one 
 one comment thread joined, one connection note drafted (never sent by the agent), CV and site
 still in sync (`profile-audit` monthly).
 
-Remind the user: every item is a draft. The agent never posts, comments, connects or schedules.
+Execution: `draft` mode leaves all of it in the file. In `assisted` or `auto`, the LinkedIn
+checklist items that are profile fields (Featured, skills order, custom URL, contact info)
+become actions for `linkedin-apply`; the README is written to the workspace and, if
+`identity.md` has a GitHub handle and `gh` is authenticated, pushed to the `<handle>/<handle>`
+repo after `approvals.site_push` says so. Posts run through `linkedin-post`.

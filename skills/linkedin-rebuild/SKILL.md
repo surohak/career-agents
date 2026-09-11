@@ -47,6 +47,6 @@ skills, featured. After the user pastes a round, re-run `profile-fetch` (fresh) 
 
 ## Applying edits
 
-Default: the user pastes by hand. If a browser automation tool is attached and the user
-asks, follow `docs/linkedin-writes.md`: one field per save, "Share with network" off, show the
-diff before each save, stop on the first unexpected page. Never post, never message.
+`draft` mode: the user pastes by hand. `assisted` or `auto`: hand the round file to
+`linkedin-apply`, which drives the browser operator, then re-fetches and re-audits. Rounds
+continue automatically until the differ is quiet or the operator reports `blocked`.

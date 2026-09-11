@@ -51,5 +51,16 @@ Write three numbers with dates: search appearances per week, profile views per w
 recruiter messages per month. Targets are 2x baseline at day 45 and 3x at day 90. If the
 numbers do not move for 3 weeks, change themes, not volume.
 
-Rules: no engagement pods, no automation tools, no mass connecting, no buying followers. These
-get accounts restricted. No em dashes in any draft. Nothing from constraints item 4.
+## 6. Execution by mode
+
+- `draft`: everything above stays in `out/growth-plan.md` as drafts.
+- `assisted` and `auto`: comments go to `linkedin-operator` as `comment` actions (read the target
+  post first through the operator and write the comment from its actual content); connection
+  notes go through the LinkedIn MCP `connect_with_person` with the note, gated by
+  `approvals.connect` (default on); posts through `linkedin-post`. Limits: 20 connection
+  requests per day, 15 comments per day, spread over the week as in the routine table.
+- Log every executed action in `out/apply-log.md`.
+
+Rules: no engagement pods, no third-party automation tools, no mass connecting, no buying
+followers. These get accounts restricted; the limits above exist for the same reason. No em
+dashes in any draft. Nothing from constraints item 4.

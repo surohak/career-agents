@@ -8,7 +8,9 @@ flowchart TD
   S2 -->|user picks findings| S5[cv-update<br/>adapter: canva / docx / md / gdocs]
   S2 -->|site exists| S6[site-sync<br/>site-auditor agent + patch]
   S3 --> S4[linkedin-banner<br/>HTML -> PNG]
-  S3 -->|user pastes| S1
+  S3 --> S20[linkedin-apply<br/>operator agent, browser]
+  S4 --> S20
+  S20 -->|re-fetch| S1
   S5 -->|export PDF| S6
   S5 --> S7[cover-letter<br/>per job]
   S3 --> S8[career-activation<br/>README, calendar, checklist]
@@ -16,6 +18,7 @@ flowchart TD
   S5 --> S10[job-scan<br/>search_jobs + gates]
   S10 --> S11[job-match<br/>requirement table, tailoring]
   S11 --> S7
+  S7 --> S21[job-apply<br/>operator, gated]
   S7 --> S12[interview-prep]
   S2 --> S13[profile-review<br/>search coverage, ATS, 6-second test]
   S13 --> S3
@@ -30,8 +33,8 @@ flowchart TD
   class S3,S5,S6 gate;
 ```
 
-Yellow nodes end in a human gate: paste by hand, explicit yes for commit/export, explicit yes for
-git commit and push.
+Yellow nodes are where the automation mode decides: `draft` stops with a file, `assisted` asks
+once, `auto` executes (subject to `approvals` in `career.json`).
 
 ## Data flow
 
@@ -47,9 +50,9 @@ workspace/
 Facts flow one way: `cv-canonical.md` -> LinkedIn copy, site, cover letters. When LinkedIn is
 newer (the person edited it directly), `cv-update` first pulls the change into cv-canonical.
 
-## Why the agents are read-only
+## Agents
 
-Every agent (`profile-differ`, `site-auditor`, `linkedin-auditor`) has Write and Edit disallowed.
-Writes happen in skills, in the main conversation, where the person can see and approve them.
-LinkedIn has no profile-edit API; the only write paths are paste-by-hand or a browser tool
-driven one field at a time (`docs/linkedin-writes.md`).
+Analysis agents (`profile-differ`, `site-auditor`, `linkedin-auditor`) have Write and Edit
+disallowed. `linkedin-operator` is the single write path to LinkedIn for things that have no
+API (profile fields, posts, banner, analytics, Easy Apply); it follows the protocol in
+`docs/automation.md`. Messages and connection requests go through the LinkedIn MCP server.

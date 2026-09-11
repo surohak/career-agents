@@ -18,7 +18,11 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - 90-day LinkedIn growth plan with target accounts, weekly routine and success metrics; a weekly review loop on pasted analytics
 - Content engine (post, carousel, article, snippet from one real project), case studies for the site and LinkedIn Projects, skills gap against real job posts
 
-Nothing is posted, sent, committed or exported without an explicit yes. Agents cannot write.
+Three automation modes, set per person in `career.json`: `draft` (files only, the person applies
+by hand), `assisted` (everything executed through MCP and browser, one yes per action), `auto`
+(end to end without asking, except actions you keep gated: by default connection requests,
+messages and job applications). Profile edits, posts, banner upload, analytics and Easy Apply run
+through a browser operator agent, since LinkedIn has no API for them. See [docs/automation.md](docs/automation.md).
 
 ## Install
 
@@ -39,7 +43,8 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 ```
 /career-agents:career-setup          # tools, MCP login, private workspace from templates
 /career-agents:career-flow           # fetch -> audit -> stop and show findings
-/career-agents:linkedin-rebuild      # paste-ready copy, round 1
+/career-agents:linkedin-rebuild      # copy for round 1
+/career-agents:linkedin-apply        # operator applies the round to the live profile, verifies
 /career-agents:cv-update             # apply chosen findings through your CV adapter
 /career-agents:site-sync             # audit and patch the personal website
 /career-agents:cover-letter          # for one job post
@@ -47,6 +52,7 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:linkedin-post         # one draft, or 5 topic candidates
 /career-agents:job-scan              # gated LinkedIn job search, apply-now / need a look / geo-locked
 /career-agents:job-match             # requirement table and fit score for one job
+/career-agents:job-apply             # Easy Apply / company form through the operator, gated
 /career-agents:profile-review        # recruiter-view score with concrete rewrites
 /career-agents:linkedin-growth       # 90-day plan, targets, weekly routine
 /career-agents:content-engine        # post + carousel + article + snippet from one project
@@ -65,10 +71,10 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       21 skills       agents/*.md        3 read-only agents
+skills/<name>/SKILL.md       23 skills       agents/*.md        3 read-only agents + linkedin-operator
 scripts/                     fetch, diff, site text, banner, verify, new workspace
 templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, metrics, banner HTML
-docs/                        flow, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
+docs/                        flow, automation modes, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
 ```
 
 ## Scripts
@@ -84,12 +90,17 @@ docs/                        flow, adapters (canva, docx, markdown-html, google-
 
 ## Safety model
 
-- Agents (`profile-differ`, `site-auditor`, `linkedin-auditor`) have Write and Edit disallowed.
-- The LinkedIn server's write tools are never called. You can deny them in settings, see
-  [docs/linkedin-writes.md](docs/linkedin-writes.md).
-- Canva finalize, DOCX overwrite, PDF export, git commit and git push each need their own yes.
+- Analysis agents (`profile-differ`, `site-auditor`, `linkedin-auditor`) have Write and Edit disallowed.
+- The only agent that writes to LinkedIn is `linkedin-operator`. It edits one field at a time,
+  verifies after each save, stops on any login, captcha or rate-limit page, never touches account
+  settings, never reads cookies or tokens, and never enters passwords or payment details.
+- Pacing: at most 15 profile edits per hour, 3 posts and 20 connection requests per day, 10 applications per day.
+- Irreversible outward actions (connect, message, apply) are gated by default; you choose to open them.
 - No cron, no scheduled scans. LinkedIn is fetched at most once per hour.
 - The workspace holds personal data and must not be committed to a public repo.
+- Browser-driven LinkedIn writes are against a strict reading of LinkedIn's terms and can get an
+  account restricted if pushed faster than the limits above. The person turning on `assisted` or
+  `auto` accepts that.
 
 ## Running it for someone else
 

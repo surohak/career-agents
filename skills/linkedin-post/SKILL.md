@@ -35,7 +35,11 @@ One paste-ready draft per pick, 120 to 220 words unless the user asks for longer
 Offer one alternative hook. Print the character count (LinkedIn truncates at about 210 chars
 before "see more", so the hook and second line must carry the point).
 
-## 3. After posting
+## 3. Publish
 
-The user posts by hand. When they paste the live URL or say it is live, append one row to
-`out/linkedin-log.md`: date, URL, topic, notes. Never post, schedule or comment for them.
+- `draft`: the user posts by hand and pastes the URL; append a row to `out/linkedin-log.md`.
+- `assisted`: show the final text, one yes, then a `publish_post` action to `linkedin-operator`.
+- `auto`: publish through the operator unless `approvals.post` is true. Max 3 posts per day.
+- If the user gave no topic in `auto` mode, pick the top candidate yourself using the theme
+  rotation rule and the best-performing theme in `out/metrics.md`, and say which you picked.
+The operator returns the post URL; append it to `out/linkedin-log.md` with date and topic.

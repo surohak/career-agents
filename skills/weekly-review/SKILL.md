@@ -7,8 +7,12 @@ allowed-tools: "Read Write Bash(python3 *)"
 
 # Weekly review
 
-No scraping, no automation. The user reads LinkedIn analytics (Profile > Analytics) and pastes
-the numbers. Create `out/metrics.md` from `templates/metrics.md` if missing.
+Create `out/metrics.md` from `templates/metrics.md` if missing. Numbers come from:
+- `assisted` or `auto`: a `read_analytics` action to `linkedin-operator` for the pages
+  `linkedin.com/dashboard/` (search appearances, profile views), `linkedin.com/analytics/creator/content/`
+  (impressions per post, last 7 days) and followers; plus `get_inbox` for inbound recruiter
+  message count; plus `out/jobs.md` and `out/linkedin-log.md` for actions taken.
+- `draft`: the user pastes the numbers.
 
 ## 1. Log
 
