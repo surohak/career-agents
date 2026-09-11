@@ -19,12 +19,16 @@ type | subject | rule | surfaces | since | why
 | `alias` | two names are one thing | `Savva is the same project as Stihi; write "Stihi & Savva"` |
 | `owner` | which employer or section owns an item | `Bet Andreas sits under Dats, never its own entry` |
 | `banned` | a claim or phrase that must not appear anywhere | `1000+ code reviews` |
-| `wording` | fixed phrasing for one fact | `Kanban to Scrum: "helped drive", never "led"` |
+| `wording` | fixed phrasing for one fact | `Kanban to Scrum: "helped drive the Kanban to Scrum move", never "led the Kanban to Scrum move"` |
 | `surface` | a difference kept on purpose, per surface | `Picsart: LinkedIn two roles; CV and site one title` |
 | `fact` | one number or date used everywhere | `freelance projects: 15+` |
 | `omit` | something that stays out of a surface | `timezone: not on the CV` |
 
 `surfaces` is `all` or a comma list of `cv`, `linkedin`, `site`, `talk`.
+
+A `never "..."` phrase is matched as whole words, case-insensitive, on every surface. Make it
+name the fact: `never "led the Kanban to Scrum move"`, not `never "led"`, or every other
+sentence with that verb becomes a false hit.
 
 ## Capturing a decision
 

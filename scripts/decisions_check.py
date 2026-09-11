@@ -4,7 +4,8 @@
   scripts/decisions_check.py <workspace>                # scans sources/*.md|txt and out/**/*.md|txt
   scripts/decisions_check.py <workspace> out/about.txt  # scans the given files only
 
-Exit 1 when a `banned` phrase or a `never "..."` wording appears. Other rows (alias, owner,
+Exit 1 when a `banned` phrase or a `never "..."` wording appears (whole words, case-insensitive;
+write phrases specific enough to name the fact, "led the Kanban move", not "led"). Other rows (alias, owner,
 fact, surface, omit) print occurrence counts of the subject per file so a reviewer sees where
 each item appears. Standard library only.
 """
@@ -54,12 +55,13 @@ def main():
         low = re.sub(r"\s+", " ", text).lower()
         for r in rows:
             for ph in forbidden(r):
-                n = low.count(ph.lower())
+                # whole words only: "led" must not match "Filled" or "Led the migration"
+                n = len(re.findall(r"(?<!\w)" + re.escape(ph.lower()) + r"(?!\w)", low))
                 if n:
                     print(f"FAIL {os.path.relpath(f, ws)}: {r['type']} '{r['subject']}': \"{ph}\" appears {n}x")
                     fail += 1
             if r["type"] in ("alias", "owner", "fact", "surface", "omit"):
-                n = low.count(r["subject"].lower())
+                n = len(re.findall(r"(?<!\w)" + re.escape(r["subject"].lower()) + r"(?!\w)", low))
                 if n:
                     print(f"note {os.path.relpath(f, ws)}: {r['type']} '{r['subject']}' appears {n}x ({r['rule'][:60]})")
     print(f"{len(rows)} decisions, {len(files)} files, {fail} violation(s)")
