@@ -27,7 +27,9 @@ Stop if the answer touches constraints item 4; propose a generic wording.
   Structure: one-line summary, Context, What I did (ordered), Stack, Outcome, Links.
 - LinkedIn Project block (fenced, paste-ready, under 2000 chars) following
   "Company - what the product is - what I worked on in order - stack", with the site link in
-  the URL field and the matching role selected under "Associated with".
+  the URL field and the matching role selected under "Associated with". `draft`: the person
+  pastes it. `assisted` or `auto`: hand it to `linkedin-apply` as one `edit_field` action on
+  the Projects dialog, under `approvals.linkedin_edit`.
 - If the site repo is configured, offer to add the case study to the data file in the site's
   format via `site-sync` (commit and push still need their own yeses).
 

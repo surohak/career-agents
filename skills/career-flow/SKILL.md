@@ -83,7 +83,10 @@ except actions whose `approvals` flag is true. Stages that execute: `linkedin-ap
 (send), `job-apply`, `weekly-review` (analytics read), `cv-update`, `site-sync`. In `auto` mode
 the flow runs end to end: fetch, audit, review, rebuild, apply, verify, banner, CV, site, growth
 plan, then a first batch of posts, a job scan into the pipeline, the daily due list, a `notify` digest, and stops only at gated approvals or a
-`blocked` browser status.
+`blocked` browser status. Skills that only read or write files (audit, review, research,
+benchmarks, plans, talk tracks, decisions, dashboard) have no mode: they run the same way
+everywhere. Skills that need the person's own input (mock interview answers, debrief notes,
+voice notes, a recorded video) wait for that input in every mode; nothing else waits.
 
 ## Rules that apply to every stage
 
