@@ -24,15 +24,19 @@ in this conversation.
 | 7 | Cover letter | `cover-letter` | `out/cover-<company>.md` | on demand |
 | 8 | Activation | `career-activation` | `out/activation.md` | drafts only |
 | 9 | Posts | `linkedin-post` | draft in chat, `out/linkedin-log.md` | user posts by hand |
-| 10 | Jobs | `job-scan` | `out/jobs.md` | user applies by hand, `cover-letter` per pick |
+| 10 | Jobs | `job-scan` then `job-match` | `out/jobs.md`, `out/match-*.md` | user applies by hand, `cover-letter` per pick |
+| 11 | Review | `profile-review` | `out/profile-review-<date>.md` | feeds rebuild and cv-update |
+| 12 | Growth | `linkedin-growth`, `content-engine`, `case-study` | `out/growth-plan.md`, `out/content/`, `out/case-studies/` | drafts only |
+| 13 | Loop | `weekly-review`, `skills-gap` | `out/metrics.md`, `out/skills-gap-*.md` | user pastes numbers |
+| 14 | Inbound | `recruiter-reply`, `interview-prep` | drafts, `out/interview-*.md` | never sent |
 
 ## How to run
 
 1. Locate the workspace: the current directory if it has `career.json`, else ask for the path,
    else offer to run `career-setup`. Run `${CLAUDE_PLUGIN_ROOT}/scripts/verify_kernel.sh <ws>`.
 2. Read `profile/MEMORY.md`, then `constraints.md`, `voice.md`, `positioning.md`. Always.
-3. Ask which stage to start from if the user did not say. Default: 1 then 2, then stop and show
-   the audit. Do not chain into rebuild or CV changes without the user choosing findings.
+3. Ask which stage to start from if the user did not say. Default: 1, 2, then 11 (`profile-review`),
+   then stop and show the audit and the review score. Do not chain into rebuild or CV changes without the user choosing findings.
 4. After each stage print a "what is left" list (unfinished findings, blocked items, things that
    need a manual action on LinkedIn). Keep it in `out/status.md` and update it, do not append.
 5. Rounds: LinkedIn work is iterative. After the user pastes round N, re-fetch and re-audit, then

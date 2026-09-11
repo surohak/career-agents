@@ -13,6 +13,10 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - Cover letters and an activation plan (GitHub README, posting calendar, weekly checklist)
 - LinkedIn post drafts in the person's voice, with a log so topics do not repeat
 - Job scan: LinkedIn search through the MCP server, every job description opened and gated on role, location and work authorization, hours, language, real job, applicant count
+- Job match, interview prep and recruiter replies, all gated first and built from real CV facts
+- Profile review from a recruiter's view: search keyword coverage, ATS parseability of the PDF, six-second test, scored report
+- 90-day LinkedIn growth plan with target accounts, weekly routine and success metrics; a weekly review loop on pasted analytics
+- Content engine (post, carousel, article, snippet from one real project), case studies for the site and LinkedIn Projects, skills gap against real job posts
 
 Nothing is posted, sent, committed or exported without an explicit yes. Agents cannot write.
 
@@ -42,6 +46,15 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:career-activation     # README, posting calendar, checklist
 /career-agents:linkedin-post         # one draft, or 5 topic candidates
 /career-agents:job-scan              # gated LinkedIn job search, apply-now / need a look / geo-locked
+/career-agents:job-match             # requirement table and fit score for one job
+/career-agents:profile-review        # recruiter-view score with concrete rewrites
+/career-agents:linkedin-growth       # 90-day plan, targets, weekly routine
+/career-agents:content-engine        # post + carousel + article + snippet from one project
+/career-agents:case-study            # site case study and LinkedIn Project entry
+/career-agents:recruiter-reply       # gated reply drafts to HR messages
+/career-agents:interview-prep        # STAR answers from real facts, questions to ask
+/career-agents:weekly-review         # log analytics, decide next week's changes
+/career-agents:skills-gap            # surface / strengthen / learn / drop
 ```
 
 The workspace is a private folder (`career.json`, `profile/`, `sources/`, `out/`) that lives
@@ -52,9 +65,9 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       12 skills       agents/*.md        3 read-only agents
+skills/<name>/SKILL.md       21 skills       agents/*.md        3 read-only agents
 scripts/                     fetch, diff, site text, banner, verify, new workspace
-templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, banner HTML
+templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, metrics, banner HTML
 docs/                        flow, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
 ```
 

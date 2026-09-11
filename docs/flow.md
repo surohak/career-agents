@@ -14,7 +14,18 @@ flowchart TD
   S3 --> S8[career-activation<br/>README, calendar, checklist]
   S8 --> S9[linkedin-post<br/>drafts, log]
   S5 --> S10[job-scan<br/>search_jobs + gates]
-  S10 --> S7
+  S10 --> S11[job-match<br/>requirement table, tailoring]
+  S11 --> S7
+  S7 --> S12[interview-prep]
+  S2 --> S13[profile-review<br/>search coverage, ATS, 6-second test]
+  S13 --> S3
+  S13 --> S5
+  S8 --> S14[linkedin-growth<br/>90-day plan, targets]
+  S14 --> S15[content-engine<br/>post, carousel, article, snippet]
+  S14 --> S16[case-study<br/>site page + LinkedIn Project]
+  S14 --> S17[weekly-review<br/>metrics.md]
+  S10 --> S18[skills-gap]
+  S19[recruiter-reply] --> S11
   classDef gate fill:#fde68a,stroke:#b45309,color:#000;
   class S3,S5,S6 gate;
 ```
@@ -29,7 +40,8 @@ workspace/
   career.json            config: person, cv adapter, site, target role, rules
   profile/               the "kernel": identity, voice, constraints, positioning, cv-canonical, accepted
   sources/               fetched dumps (gitignored)
-  out/                   generated: audit, rebuild rounds, banner, cv.pdf, cover letters, activation
+  out/                   generated: audit, review, rebuild rounds, banner, cv.pdf, cover letters,
+                         activation, growth-plan, content/, case-studies/, metrics, jobs, matches, interviews
 ```
 
 Facts flow one way: `cv-canonical.md` -> LinkedIn copy, site, cover letters. When LinkedIn is
