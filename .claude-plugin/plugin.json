@@ -4,8 +4,17 @@
   "description": "Reusable Claude Code flow that keeps a person's LinkedIn, CV and personal website in sync: fetch, audit, rebuild copy, banner, cover letters, activation plan. Read-only agents, human approves every write.",
   "version": "0.1.0",
   "license": "MIT",
-  "keywords": ["linkedin", "cv", "resume", "career", "personal-website", "cover-letter"],
+  "keywords": [
+    "linkedin",
+    "cv",
+    "resume",
+    "career",
+    "personal-website",
+    "cover-letter"
+  ],
   "skills": "./skills/",
   "agents": "./agents/",
-  "mcpServers": "./.mcp.json"
+  "mcpServers": "./.mcp.json",
+  "repository": "https://github.com/surohak/career-agents",
+  "homepage": "https://github.com/surohak/career-agents"
 }

@@ -1,6 +1,6 @@
 {
   "name": "career-agents",
-  "owner": { "name": "career-agents maintainers" },
+  "owner": { "name": "surohak" },
   "version": "0.1.0",
   "plugins": [
     {

@@ -17,7 +17,7 @@ Nothing is posted, sent, committed or exported without an explicit yes. Agents c
 ## Install
 
 ```bash
-/plugin marketplace add <owner>/career-agents
+/plugin marketplace add surohak/career-agents
 /plugin install career-agents@career-agents
 ```
 
