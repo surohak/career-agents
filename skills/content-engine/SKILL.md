@@ -40,4 +40,4 @@ Anything from constraints item 4 is removed here, before any format is written.
 
 Suggest an order and spacing (post first, carousel a week later, article two weeks later,
 snippet in between) and add them to the calendar in `out/growth-plan.md` if it exists.
-Never publish. Log live URLs in `out/linkedin-log.md` when the user pastes them.
+Publishing goes through `linkedin-post` by mode; log live URLs in `out/linkedin-log.md`.

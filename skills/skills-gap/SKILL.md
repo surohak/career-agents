@@ -8,7 +8,8 @@ allowed-tools: "Read Write Bash(python3 *)"
 # Skills gap
 
 Inputs: job descriptions saved under `sources/job-*.txt` and the lines in `out/jobs.md`
-(ask the user to paste 10 or more recent target posts if fewer than 10 are saved),
+(if fewer than 10 are saved, run one `search_jobs` for `search.keywords` with `past_week` and
+`get_job_details` for the first 10 to 15 results; draft mode without MCP: ask for pasted posts),
 `cv-canonical.md`, `sources/linkedin.md` (skills section), `positioning.md`.
 Output: `out/skills-gap-<date>.md`.
 

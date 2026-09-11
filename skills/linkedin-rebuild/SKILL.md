@@ -7,7 +7,8 @@ allowed-tools: "Read Write Bash(python3 *)"
 
 # LinkedIn rebuild
 
-LinkedIn has no write API here. You write copy, the user pastes it. Output file:
+LinkedIn has no write API. You write the copy; `linkedin-apply` executes it in assisted or auto
+mode, the user pastes it in draft mode. Output file:
 `out/linkedin-rebuild-<date>-round<N>.md` from `templates/linkedin-rebuild.md`.
 
 ## Inputs (read all, every time)
@@ -41,7 +42,7 @@ python3 -c "import sys;print(len(open(sys.argv[1]).read()))" out/about.txt
 ## Rounds
 
 Round 1 covers headline, About and the top 2 roles. Later rounds cover older roles, projects,
-skills, featured. After the user pastes a round, re-run `profile-fetch` (fresh) and
+skills, featured. After a round is applied (operator or by hand), re-run `profile-fetch` (fresh) and
 `profile-audit`, then write the next round with only what still differs. Always end with
 "What is left after this round" as a checklist.
 

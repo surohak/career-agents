@@ -1,6 +1,6 @@
 ---
 name: weekly-review
-description: Weekly feedback loop. The user pastes LinkedIn analytics (search appearances, profile views, followers, post impressions, inbound messages) and application progress; the skill logs them in out/metrics.md, compares with previous weeks and says what to change next week. Use on the review day or when the user says "weekly review" or pastes analytics numbers.
+description: Weekly feedback loop. Reads LinkedIn analytics (search appearances, profile views, followers, post impressions, inbound messages) through the browser operator, or from pasted numbers in draft mode, logs them in out/metrics.md, compares with previous weeks and says what to change next week. Use on the review day or when the user says "weekly review" or pastes analytics numbers.
 disable-model-invocation: false
 allowed-tools: "Read Write Bash(python3 *)"
 ---

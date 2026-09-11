@@ -27,7 +27,7 @@ in this conversation.
 | 10 | Jobs | `job-scan`, `job-match`, `cover-letter`, `job-apply` | `out/jobs.md`, `out/match-*.md`, applications | `approvals.apply` (default on) |
 | 11 | Review | `profile-review` | `out/profile-review-<date>.md` | feeds rebuild and cv-update |
 | 12 | Growth | `linkedin-growth`, `content-engine`, `case-study` | `out/growth-plan.md`, `out/content/`, `out/case-studies/` | drafts only |
-| 13 | Loop | `weekly-review`, `skills-gap` | `out/metrics.md`, `out/skills-gap-*.md` | user pastes numbers |
+| 13 | Loop | `weekly-review`, `skills-gap` | `out/metrics.md`, `out/skills-gap-*.md` | operator reads analytics; draft: user pastes |
 | 14 | Inbound | `recruiter-reply`, `interview-prep` | drafts, `out/interview-*.md` | never sent |
 
 ## How to run
@@ -39,7 +39,7 @@ in this conversation.
    then stop and show the audit and the review score. Do not chain into rebuild or CV changes without the user choosing findings.
 4. After each stage print a "what is left" list (unfinished findings, blocked items, things that
    need a manual action on LinkedIn). Keep it in `out/status.md` and update it, do not append.
-5. Rounds: LinkedIn work is iterative. After the user pastes round N, re-fetch and re-audit, then
+5. Rounds: LinkedIn work is iterative. After round N is applied, re-fetch and re-audit, then
    produce round N+1 with only the remaining items.
 
 ## Automation mode

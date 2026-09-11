@@ -9,7 +9,8 @@ allowed-tools: "Read Write Bash(python3 *)"
 
 Inputs: `profile/cv-canonical.md`, `positioning.md`, `voice.md`, `identity.md`, and the job
 post text. If the user gives a LinkedIn job URL and the LinkedIn MCP tools are available, call
-`get_job_details` once and save the text to `sources/job-<id>.txt`. Otherwise ask them to paste it.
+`get_job_details` once and save the text to `sources/job-<id>.txt`. For a company URL, fetch the
+page text with `scripts/site_text.py <url> --max-pages 1`. Only ask for a paste if both fail.
 
 Output: `out/cover-<company>-<YYYY-MM-DD>.md` with three variants:
 
