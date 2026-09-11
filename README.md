@@ -11,6 +11,8 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - CV edits through an adapter for the tool the person already uses
 - Site audit and patch: facts, forbidden phrases, privacy leaks, served CV PDF, chatbot knowledge base
 - Cover letters and an activation plan (GitHub README, posting calendar, weekly checklist)
+- LinkedIn post drafts in the person's voice, with a log so topics do not repeat
+- Job scan: LinkedIn search through the MCP server, every job description opened and gated on role, location and work authorization, hours, language, real job, applicant count
 
 Nothing is posted, sent, committed or exported without an explicit yes. Agents cannot write.
 
@@ -38,6 +40,8 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:site-sync             # audit and patch the personal website
 /career-agents:cover-letter          # for one job post
 /career-agents:career-activation     # README, posting calendar, checklist
+/career-agents:linkedin-post         # one draft, or 5 topic candidates
+/career-agents:job-scan              # gated LinkedIn job search, apply-now / need a look / geo-locked
 ```
 
 The workspace is a private folder (`career.json`, `profile/`, `sources/`, `out/`) that lives
@@ -48,9 +52,9 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       10 skills       agents/*.md        3 read-only agents
+skills/<name>/SKILL.md       12 skills       agents/*.md        3 read-only agents
 scripts/                     fetch, diff, site text, banner, verify, new workspace
-templates/                   workspace kernel, rebuild file, posting calendar, banner HTML
+templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, banner HTML
 docs/                        flow, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
 ```
 

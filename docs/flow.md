@@ -12,6 +12,9 @@ flowchart TD
   S5 -->|export PDF| S6
   S5 --> S7[cover-letter<br/>per job]
   S3 --> S8[career-activation<br/>README, calendar, checklist]
+  S8 --> S9[linkedin-post<br/>drafts, log]
+  S5 --> S10[job-scan<br/>search_jobs + gates]
+  S10 --> S7
   classDef gate fill:#fde68a,stroke:#b45309,color:#000;
   class S3,S5,S6 gate;
 ```

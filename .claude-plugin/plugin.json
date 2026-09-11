@@ -1,7 +1,7 @@
 {
   "name": "career-agents",
   "displayName": "Career Agents",
-  "description": "Reusable Claude Code flow that keeps a person's LinkedIn, CV and personal website in sync: fetch, audit, rebuild copy, banner, cover letters, activation plan. Read-only agents, human approves every write.",
+  "description": "Reusable Claude Code flow for a person's career: sync LinkedIn, CV and personal website, rebuild LinkedIn copy and banner, draft posts and cover letters, scan LinkedIn jobs with fit gates. Read-only agents, human approves every write.",
   "version": "0.1.0",
   "license": "MIT",
   "keywords": [
@@ -10,7 +10,9 @@
     "resume",
     "career",
     "personal-website",
-    "cover-letter"
+    "cover-letter",
+    "job-search",
+    "linkedin-posts"
   ],
   "skills": "./skills/",
   "agents": "./agents/",

@@ -27,8 +27,8 @@ do not create it.
 
 ## 3. Posting calendar
 
-Use `templates/posting-calendar.md`. Four weeks, two posts per week, each with a full draft
-(120 to 220 words), hook in the first line, one CV fact as proof, one question at the end.
+Use `templates/posting-calendar.md`. Four weeks, two posts per week, hooks and themes here,
+full drafts through the `linkedin-post` skill when a slot is due (120 to 220 words each, hook in the first line, one CV fact as proof, one question at the end.
 Vary themes: lesson, opinion, before/after, tooling tip, career reflection, code walkthrough,
 hiring-manager view, recap. No em dashes, no "open to work", no employer internals.
 

@@ -3,7 +3,13 @@
     "name": "<Full Name>",
     "linkedin_url": "https://www.linkedin.com/in/<handle>/",
     "location": "<City, Country>",
-    "email_public": false
+    "email_public": false,
+    "country": "<Country>",
+    "timezone": "<UTC offset, e.g. UTC+4>",
+    "work_authorization": [
+      "<regions or countries you may work in without sponsorship>"
+    ],
+    "can_relocate": false
   },
   "cv": {
     "adapter": "markdown",
@@ -20,8 +26,14 @@
   },
   "target": {
     "role": "<Target job title>",
-    "keywords": ["<keyword 1>", "<keyword 2>"],
-    "markets": ["remote", "<country>"]
+    "keywords": [
+      "<keyword 1>",
+      "<keyword 2>"
+    ],
+    "markets": [
+      "remote",
+      "<country>"
+    ]
   },
   "rules": {
     "no_em_dash": true,
@@ -29,5 +41,15 @@
     "no_open_to_work_phrases": true,
     "never_autopost": true,
     "years_of_experience_in_copy": false
+  },
+  "search": {
+    "keywords": [
+      "<Job title 1>",
+      "<Job title 2>"
+    ],
+    "location": "Worldwide",
+    "work_type": "remote",
+    "experience_level": "mid_senior",
+    "max_applicants": 10
   }
 }

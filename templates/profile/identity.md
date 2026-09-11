@@ -8,7 +8,8 @@
 - Website: <url or none>
 - Public contact: email <yes/no>, phone <never/yes>
 - Languages: <English C1, ...>
-- Work authorization notes: <optional>
+- Work authorization: <where you can work without sponsorship, e.g. EU citizen; or: only from <country> as a contractor>
+- Timezone: <UTC offset>, comfortable overlap: <regions and hours>
 
 ## Short bio (2 to 3 sentences, facts only)
 

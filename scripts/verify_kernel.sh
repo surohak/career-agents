@@ -15,6 +15,8 @@ d = json.load(open(sys.argv[1]))
 for k in ("person", "cv", "target"):
     if k not in d: print(f"career.json: missing '{k}'"); sys.exit(1)
 if not d["person"].get("name"): print("career.json: person.name is empty"); sys.exit(1)
+if "search" not in d or not d.get("person", {}).get("timezone"):
+    print("career.json: no 'search' block or person.timezone; job-scan will ask for them (not fatal)")
 if d["cv"].get("adapter") not in ("canva", "docx", "markdown", "html", "pdf-only", "google-docs"):
     print("career.json: cv.adapter must be canva | docx | markdown | html | google-docs | pdf-only"); sys.exit(1)
 PY

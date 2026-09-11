@@ -23,6 +23,8 @@ in this conversation.
 | 6 | Site | `site-sync` (agent `site-auditor`) | patch in the site repo | explicit yes before commit/push |
 | 7 | Cover letter | `cover-letter` | `out/cover-<company>.md` | on demand |
 | 8 | Activation | `career-activation` | `out/activation.md` | drafts only |
+| 9 | Posts | `linkedin-post` | draft in chat, `out/linkedin-log.md` | user posts by hand |
+| 10 | Jobs | `job-scan` | `out/jobs.md` | user applies by hand, `cover-letter` per pick |
 
 ## How to run
 

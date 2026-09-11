@@ -8,6 +8,8 @@
 - Website: https://alexrivera.example
 - Public contact: email yes, phone never
 - Languages: English C2, Portuguese native, Spanish B2
+- Work authorization: EU citizen, no sponsorship needed in the EU; needs sponsorship for US, UK, Canada
+- Timezone: UTC+1 (Lisbon), comfortable overlap: EU hours, US East mornings
 
 ## Short bio
 
