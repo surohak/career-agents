@@ -46,6 +46,8 @@ table. If the invite says only "interview", ask which, listing the stages.
 1. **Company and role in 5 lines** (from the research brief; do not invent).
 2. **Interviewers**: name, title, background, one thing to connect on, likely angle.
 3. **Your pitch (60 seconds)** tuned to this stage's audience. CV facts only. No em dashes.
+   For the HR screen and the hiring-manager stage, take it from `out/talk-tracks.md` (run
+   `talk-tracks` if absent) and cut it to the stage, rather than writing a new one.
 4. **Likely questions for this stage** (10 to 15) with STAR outlines: Situation and Task in one
    line, Action in 2 to 3 lines, Result with a real number or an observable outcome. Every
    answer maps to a CV role or project. Mark "(needs your input)" where the CV has no material.

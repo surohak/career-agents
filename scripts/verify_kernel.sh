@@ -8,6 +8,7 @@ fail=0
 for f in identity.md voice.md constraints.md positioning.md cv-canonical.md accepted.md; do
   [[ -f "$ROOT/profile/$f" ]] || { echo "MISSING profile/$f"; fail=1; }
 done
+[[ -f "$ROOT/profile/decisions.md" ]] || echo "warning: no profile/decisions.md (copy templates/profile/decisions.md); the decisions log is empty"
 if [[ -f "$ROOT/career.json" ]]; then
   python3 - "$ROOT/career.json" <<'PY' || fail=1
 import json, sys
@@ -31,6 +32,11 @@ if a.get("mode", "draft") not in ("draft", "assisted", "auto"):
     print("career.json: automation.mode must be draft | assisted | auto"); sys.exit(1)
 if a.get("mode") in ("assisted", "auto") and a.get("browser", "none") == "none":
     print("career.json: automation.browser is none; LinkedIn profile edits and posts fall back to draft")
+pp = d.get("site", {}).get("push_policy", "ask")
+if pp not in ("ask", "direct"):
+    print("career.json: site.push_policy must be ask | direct"); sys.exit(1)
+if not isinstance(d.get("rules", {}).get("word_perfect", False), bool):
+    print("career.json: rules.word_perfect must be true or false"); sys.exit(1)
 if d["cv"].get("adapter") not in ("canva", "docx", "markdown", "html", "pdf-only", "google-docs"):
     print("career.json: cv.adapter must be canva | docx | markdown | html | google-docs | pdf-only"); sys.exit(1)
 PY

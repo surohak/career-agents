@@ -36,10 +36,10 @@ mkdir -p "$(dirname "$OUT")"
 SECTIONS="name, headline, location, about, experience, education, skills, languages, projects, certifications"
 if [[ -z "$URL" ]]; then
   TOOL="mcp__linkedin__get_my_profile"
-  PROMPT="Call $TOOL once with every section available ($SECTIONS). Return the text verbatim as markdown with one '=== section ===' header per section (for example === experience ===). Keep the order and wording exactly as returned. No commentary, no summary."
+  PROMPT="Call $TOOL once with every section available ($SECTIONS). Return the text verbatim as markdown with one '=== section ===' header per section (for example === experience ===). Inside === experience === write each position as: title line, then 'Company · Employment type', then 'Mon YYYY - Mon YYYY', then location, then the description lines with bullets as '▸ '. Keep the wording exactly as returned. If a section is not in the tool output, write the section header followed by the single line '(unreadable by MCP)'. No commentary, no summary."
 else
   TOOL="mcp__linkedin__get_person_profile"
-  PROMPT="Call $TOOL once for the profile URL $URL with every section available ($SECTIONS). Return the text verbatim as markdown with one '=== section ===' header per section (for example === experience ===). Keep the order and wording exactly as returned. No commentary, no summary."
+  PROMPT="Call $TOOL once for the profile URL $URL with every section available ($SECTIONS). Return the text verbatim as markdown with one '=== section ===' header per section (for example === experience ===). Inside === experience === write each position as: title line, then 'Company · Employment type', then 'Mon YYYY - Mon YYYY', then location, then the description lines with bullets as '▸ '. Keep the wording exactly as returned. If a section is not in the tool output, write the section header followed by the single line '(unreadable by MCP)'. No commentary, no summary."
 fi
 
 TMP="$(mktemp)"
@@ -51,3 +51,4 @@ if ! grep -q '^=== experience ===' "$TMP"; then
 fi
 mv "$TMP" "$OUT"
 echo "wrote $OUT ($(wc -l < "$OUT") lines)"
+python3 "$(dirname "$0")/linkedin_dump_check.py" "$OUT" || true

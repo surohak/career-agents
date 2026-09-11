@@ -22,9 +22,20 @@ ${CLAUDE_PLUGIN_ROOT}/scripts/fetch_linkedin.sh --url https://www.linkedin.com/i
 
 If the MCP tools are visible in this session, call `get_my_profile` (or `get_person_profile`)
 once with all sections and write the result verbatim with `=== section ===` headers to the same
-file. Required sections: name, headline, location, about, experience, education, skills,
-languages, projects, certifications. One call. Do not retry in a loop; if it times out, tell the
-user to run the login command from `career-setup`.
+file in the layout of `docs/linkedin-dump-format.md`. Required sections: name, headline,
+location, about, experience, education, skills, languages, projects, certifications. One call.
+Do not retry in a loop; if it times out, tell the user to run the login command from `career-setup`.
+
+Blind spots: the MCP read returns no About text and at most ten projects. Write
+`(unreadable by MCP)` under a section the tool did not return; never leave it out and never
+write it as empty. Then validate:
+
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/scripts/linkedin_dump_check.py sources/linkedin.md
+```
+
+In `assisted` or `auto` mode, `verify-edits` fills the unreadable sections through the browser
+operator's read-only `read_field` action. In `draft` mode ask the person to paste About once.
 
 ## CV
 
@@ -44,10 +55,11 @@ Also record page count and fonts: `pdfinfo <pdf>`.
 ${CLAUDE_PLUGIN_ROOT}/scripts/site_text.py https://<site> --out sources/site.txt
 ```
 
-If the script warns that there is very little text, the site is client-rendered. Options:
-pass built HTML with `--files`, or, if `career.json` has `site.repo`, read the content source
-files listed in `site.content_paths` directly and note that the audit runs against source, not
-the live page.
+The script writes only where `--out` points; without it the text goes to stdout and nothing is
+written. If it warns that there is very little text, the site is client-rendered. Default for
+such sites: build the repo (`site.repo`) and pass the built HTML with
+`--files <build>/index.html ... --out sources/site.txt`; or read the content source files in
+`site.content_paths` directly and note that the audit runs against source, not the live page.
 
 ## Privacy
 

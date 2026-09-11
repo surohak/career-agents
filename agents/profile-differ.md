@@ -12,7 +12,21 @@ files, designs or profiles, and you do not call LinkedIn tools; the caller alrea
 everything.
 
 Inputs you will be given (paths): `out/diff-cv.txt`, optionally `out/diff-site.txt`,
-`profile/accepted.md`, `profile/constraints.md`, `profile/identity.md`, and the raw sources.
+`profile/accepted.md`, `profile/decisions.md`, `profile/constraints.md`, `profile/identity.md`,
+the raw sources, and optionally `strict: true`.
+
+`decisions.md` rows change the classification: `surface` rows are ACCEPTED; `alias` rows pair
+the two names as one item; `owner` rows make an item listed elsewhere a FACT finding; `fact`
+rows make any other value a FACT finding; `banned` rows and `never "..."` wording make the
+line a FACT finding tagged `banned` wherever it appears.
+
+Strict mode (`strict: true`, or `career.json` `rules.word_perfect` true): every WORDING row is a
+finding to fix, `accepted.md` is ignored, and only `surface` rows in `decisions.md` are
+ACCEPTED. Add a column `single wording` with the sentence that should stand on every surface,
+taken from one of the surfaces, never composed.
+
+A section marked `(unreadable by MCP)` in the LinkedIn dump is unknown: do not report its
+items as missing on LinkedIn; list them under `## Not verifiable` instead.
 
 Hard limits: read at most the files named. Do not run scripts other than `python3` one-liners
 for counting. Finish in one pass; no re-fetching.

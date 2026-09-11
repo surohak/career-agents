@@ -53,12 +53,14 @@ in this conversation.
 | 36 | Self-check | `operator-selftest`, `run-log` | `out/selftest-*.md`, `out/runs.md` | read-only |
 | 37 | First contact | `start` | workspace, track, mode, first review, in plain words | hides the rest until asked |
 | 38 | From the phone | `digest-replies`, `recruiter-view`, `workspace-export` | approvals from the channel, search-result renders, zip or wipe | replies act on one queued row; delete needs a typed confirmation |
+| 39 | Word perfect | `decisions`, `consistency-strict`, `verify-edits` | `profile/decisions.md`, `out/strict-<date>.md`, ticked round files | `rules.word_perfect`; banned phrases block every draft; browser reads are read-only |
+| 40 | Say it | `talk-tracks`, `banner-iterate` | `out/talk-tracks.md`, `out/banner/v<N>.png` with change notes | CV facts only; the person picks the version |
 
 ## How to run
 
 1. Locate the workspace: the current directory if it has `career.json`, else ask for the path,
    else offer to run `career-setup`. Run `${CLAUDE_PLUGIN_ROOT}/scripts/verify_kernel.sh <ws>`.
-2. Read `profile/MEMORY.md`, then `constraints.md`, `voice.md`, `positioning.md`. Always. Read
+2. Read `profile/MEMORY.md`, then `constraints.md`, `voice.md`, `positioning.md`, `decisions.md`. Always. Read
    `career.json` `target.track`; if it is not `ic`, the `manager-track` or `early-career` rules apply
    to every stage. See `docs/skills-map.md` for which skill to call when.
 3. Ask which stage to start from if the user did not say. Default for a new person: 15 (`intake`)
@@ -66,8 +68,11 @@ in this conversation.
    then stop and show the scores, the match matrix and the top fixes. Do not chain into rebuild or CV changes without the user choosing findings.
 4. After each stage print a "what is left" list (unfinished findings, blocked items, things that
    need a manual action on LinkedIn). Keep it in `out/status.md` and update it, do not append.
-5. Rounds: LinkedIn work is iterative. After round N is applied, re-fetch and re-audit, then
-   produce round N+1 with only the remaining items.
+5. Rounds: LinkedIn work is iterative. After round N is applied by the operator, re-fetch and
+   re-audit; after hand edits run `verify-edits`. Then produce round N+1 with only the
+   remaining items. When the user states a content rule mid-round, `decisions` records it before
+   the next draft. With `rules.word_perfect` true, `consistency-strict` replaces the audit's
+   accepted list and runs until only `surface` rows remain.
 
 ## Automation mode
 

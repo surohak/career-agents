@@ -15,7 +15,9 @@ cover letters see the same facts.
 
 1. Read the chosen findings (from the audit table or the user's message). Restate them as a
    numbered edit list: location in CV, old text, new text. Get a yes on the list.
-2. Edit `profile/cv-canonical.md` accordingly.
+2. Edit `profile/cv-canonical.md` accordingly. Apply `profile/decisions.md` (aliases, owners,
+   fixed wording, `omit` rows for the CV) and run `decisions_check.py <workspace>
+   profile/cv-canonical.md`; a banned phrase blocks the edit list.
 3. Apply through the adapter in `career.json` `cv.adapter`:
    - `canva`: `docs/adapters/canva.md` (transactional, one page per call, finalize is irreversible)
    - `docx`: `docs/adapters/docx.md` (python-docx, keep runs and styles)
@@ -34,7 +36,10 @@ pdftoppm -png -r 60 out/cv.pdf out/cv-preview        # then Read the PNG(s) and 
 
 ## Hard rules
 
-- Never add text boxes or pages; edit existing text so the layout holds.
+- Never add text boxes or pages; edit existing text so the layout holds. A new section is a
+  copied block (`docs/limits.md`, Canva states), never a fresh box.
+- Never rebuild a Canva or DOCX master in another format to ship a change; the rebuild drifts.
+  Edit the master, export, verify.
 - Preserve the person's formatting (bold company names, dates alignment).
 - No em dashes, no ligature characters in the source text, no invented numbers.
 - Commit/finalize/export/overwrite: `draft` and `assisted` need an explicit yes in this

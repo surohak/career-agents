@@ -24,8 +24,10 @@ LinkedIn role owns).
 
 ## 2. Classification (delegate to the `profile-differ` agent)
 
-Give the agent the two diff files, `profile/accepted.md` and `profile/constraints.md`. It returns
-one table:
+Give the agent the two diff files, `profile/accepted.md`, `profile/decisions.md` and
+`profile/constraints.md`, plus `strict: true` when `rules.word_perfect` is true. Run
+`linkedin_dump_check.py sources/linkedin.md` first; sections it marks unreadable are unknown,
+not missing. It returns one table:
 
 | # | Where | Type | LinkedIn | CV / Site | Suggested action |
 |---|-------|------|----------|-----------|------------------|
@@ -47,4 +49,6 @@ Write `out/audit-<date>.md` with: sources and their age, the table, CV quality l
 End by asking the user which findings to act on. Do not start editing anything.
 
 If the user accepts a WORDING difference as intentional, append it to `profile/accepted.md`
-in the documented format so it never comes back.
+in the documented format so it never comes back; in strict mode record it as a `surface` row
+through `decisions` instead. Any rule the user states while choosing ("never say X",
+"helped drive, not led") is recorded by `decisions` the same turn.

@@ -88,8 +88,21 @@ flowchart TD
   S60 --> S20
   S61[recruiter-view<br/>PNG] --> S3
   S62[workspace-export<br/>zip or wipe]
-  S24 --> S59[reference-prep]
-  S10 --> S60[relocation-planner]
+  S24 --> S63[reference-prep]
+  S10 --> S64[relocation-planner]
+  S65[decisions<br/>rules every draft obeys] --> S3
+  S65 --> S5
+  S65 --> S6
+  S2 --> S66[consistency-strict<br/>one wording per row]
+  S66 --> S3
+  S66 --> S5
+  S66 --> S6
+  S3 -->|hand edits| S67[verify-edits<br/>tick the round, read About]
+  S67 --> S3
+  S12 --> S68[talk-tracks<br/>90 s, 3 to 5, 15 to 20 min]
+  S68 --> S27
+  S4 --> S69[banner-iterate<br/>v2, v3 with change notes]
+  S69 --> S20
   classDef gate fill:#fde68a,stroke:#b45309,color:#000;
   class S3,S5,S6,S26,S30,S37,S41,S45,S58 gate;
 ```
@@ -102,7 +115,7 @@ once, `auto` executes (subject to `approvals` in `career.json`).
 ```
 workspace/
   career.json            config: person, cv adapter, site, target role, rules
-  profile/               the "kernel": identity, voice, constraints, positioning, cv-canonical, accepted
+  profile/               the "kernel": identity, voice, constraints, positioning, cv-canonical, accepted, decisions
   sources/               fetched dumps (gitignored)
   out/                   generated: audit, review, rebuild rounds, banner, cv.pdf, cover letters,
                          activation, growth-plan, content/, case-studies/, metrics, jobs, matches, interviews

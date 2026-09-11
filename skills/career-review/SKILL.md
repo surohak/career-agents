@@ -33,7 +33,9 @@ Match matrix (rows: name, headline or title, current role and dates, each past r
 FACT differences (must fix): ...
 Top 10 fixes, ordered by impact, each tagged with the skill that applies it
   (linkedin-rebuild, cv-update, site-sync, linkedin-banner, recommendations, site-seo)
-Accepted differences (from profile/accepted.md), skipped
+Accepted differences (from profile/accepted.md, or only `surface` rows of decisions.md when
+  rules.word_perfect is true), skipped
+Not verifiable: sections the LinkedIn MCP could not read (About, projects beyond ten)
 What runs next in the flow, by automation mode
 ```
 

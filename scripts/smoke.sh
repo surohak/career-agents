@@ -12,6 +12,10 @@ python3 "$HERE/scripts/profile_diff.py" --linkedin "$EX/sources/linkedin.md" --c
 mkdir -p "$TMP/ws/out"; cp "$HERE/templates/metrics.md" "$HERE/templates/pipeline.md" "$HERE/templates/linkedin-log.md" "$TMP/ws/out/"
 python3 "$HERE/scripts/dashboard.py" "$TMP/ws" --out "$TMP/dashboard.html" > /dev/null
 grep -q "Career dashboard" "$TMP/dashboard.html" || { echo "FAIL dashboard"; fail=1; }
+python3 "$HERE/scripts/decisions_check.py" "$EX" > "$TMP/decisions.txt" || { echo "FAIL decisions_check on the example"; cat "$TMP/decisions.txt"; fail=1; }
+python3 "$HERE/scripts/linkedin_dump_check.py" "$EX/sources/linkedin.md" > "$TMP/dump.txt" || { echo "FAIL linkedin_dump_check on the example"; cat "$TMP/dump.txt"; fail=1; }
+python3 "$HERE/scripts/site_text.py" --files "$HERE/templates/banner/banner.html" > "$TMP/site.txt" 2>/dev/null; [[ -s "$TMP/site.txt" ]] || { echo "FAIL site_text stdout"; fail=1; }
+[[ -e "$HERE/sources" ]] && { echo "FAIL site_text wrote into the plugin dir"; fail=1; }
 python3 "$HERE/scripts/gen_reference.py" --check > "$TMP/ref.txt" || { echo "FAIL reference (run scripts/gen_reference.py)"; cat "$TMP/ref.txt"; fail=1; }
 for f in skills/*/SKILL.md; do n=$(basename "$(dirname "$f")"); grep -q "^name: $n$" "$HERE/$f" || { echo "FAIL frontmatter $f"; fail=1; }; done
 python3 - "$HERE" <<'PY' || fail=1

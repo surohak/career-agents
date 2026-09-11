@@ -7,10 +7,11 @@ Invoke a lower skill directly only when you want that single step.
 |-------|-------------|-------|---------------------------------|
 | Start | `start` (never used Claude Code), `intake` (new person), `career-setup` (tools only) | `career-setup`, `intake`, `career-review` | you only need tools installed |
 | Review | `career-review` | `profile-fetch`, `profile-audit`, `profile-review`, `site-auditor`, `site-seo` | `profile-audit`: only the match; `profile-review`: only the score; `site-seo`: only the site |
-| Sync | `career-flow` | `linkedin-rebuild`, `linkedin-apply`, `linkedin-banner`, `cv-update`, `site-sync`, `profile-history` | one surface only |
+| Sync | `career-flow` | `linkedin-rebuild`, `linkedin-apply`, `linkedin-banner`, `banner-iterate`, `cv-update`, `site-sync`, `profile-history`, `verify-edits` | one surface only, or you edited by hand and want the round ticked |
+| Word perfect | `consistency-strict` | `decisions`, `profile-audit`, `verify-edits`, then `cv-update`, `linkedin-rebuild`, `site-sync` | `decisions`: record one rule the user just stated |
 | Jobs | `application-tracker` (daily) | `job-scan`, `job-match`, `company-research`, `cv-tailor`, `cover-letter`, `job-apply`, `job-boards` | one job |
 | Getting in | `referral-finder` | `cold-outreach` (only when no warm path exists) | you already know there is no mutual contact |
-| Interviews | `interview-prep` | `mock-interview`, `interview-debrief`, `reference-prep`, `offer-review` | you already have the brief and want to practise, debrief, or compare offers |
+| Interviews | `interview-prep` | `talk-tracks`, `mock-interview`, `interview-debrief`, `reference-prep`, `offer-review` | you already have the brief and want to practise, debrief, or compare offers; `talk-tracks`: only the self-introduction |
 | Visibility | `linkedin-growth` (the plan and routine) | `content-engine` (production), `linkedin-post` (one post), `post-visuals`, `case-study`, `talks-and-writing`, `video-intro`, `recommendations`, `headline-test`, `recruiter-view` | you want one artifact, not the plan |
 | Reach | `multi-platform` | `github-review`, `portfolio-site`, `multilingual`, `footprint-audit` | one platform |
 | Loop | `weekly-review` | `rejection-review`, `skills-gap`, `learning-plan`, `salary-benchmark`, `dashboard`, `run-log` | mid-week questions |
@@ -25,3 +26,7 @@ Overlaps resolved:
 - `cold-outreach` is the fallback of `referral-finder`, never the first move.
 - `linkedin-growth` decides what and when; `content-engine` and `linkedin-post` write.
 - `job-scan` finds; `application-tracker` remembers; `dashboard` shows.
+- `accepted.md` tolerates a difference; `decisions.md` rules it. With `rules.word_perfect` only
+  `decisions.md` counts, and `consistency-strict` drives the surfaces to identical wording.
+- `linkedin-apply` verifies what the operator wrote; `verify-edits` verifies what the person
+  wrote by hand, and reads the fields the MCP cannot.

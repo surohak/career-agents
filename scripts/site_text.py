@@ -2,7 +2,8 @@
 """Dump the visible text of a personal website so it can be diffed against
 LinkedIn and the CV.
 
-  scripts/site_text.py https://example.dev --out sources/site.txt
+  scripts/site_text.py https://example.dev --out sources/site.txt   # writes only where --out says
+  scripts/site_text.py https://example.dev                          # prints to stdout, writes nothing
   scripts/site_text.py https://example.dev --max-pages 12 --paths /about /projects
 
 Follows same-origin links (about, experience, projects, resume, cv, work, contact)
@@ -55,7 +56,7 @@ def clean(text):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("url", nargs="?")
-    ap.add_argument("--out", default="sources/site.txt")
+    ap.add_argument("--out", default=None, help="write here; without it the text goes to stdout and no file is written")
     ap.add_argument("--max-pages", type=int, default=8)
     ap.add_argument("--paths", nargs="*", default=[], help="extra paths to fetch first")
     ap.add_argument("--files", nargs="*", default=[], help="local HTML files instead of a URL")
@@ -87,12 +88,16 @@ def main():
                         and any(h in full.lower() for h in FOLLOW_HINTS):
                     queue.append(full)
     text = "\n\n".join(chunks)
-    import os; os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
-    open(a.out, "w", encoding="utf-8").write(text)
     words = len(text.split())
-    print(f"wrote {a.out}: {len(chunks)} page(s), {words} words")
+    if a.out:
+        import os; os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
+        open(a.out, "w", encoding="utf-8").write(text)
+        print(f"wrote {a.out}: {len(chunks)} page(s), {words} words", file=sys.stderr)
+    else:
+        sys.stdout.write(text + "\n")
+        print(f"{len(chunks)} page(s), {words} words (no --out given, nothing written)", file=sys.stderr)
     if words < 80:
-        print("warning: very little text. The site is probably client-rendered; use --files on the built HTML or copy the page text by hand.")
+        print("warning: very little text. The site is probably client-rendered; use --files on the built HTML or copy the page text by hand.", file=sys.stderr)
 
 
 if __name__ == "__main__":

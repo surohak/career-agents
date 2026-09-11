@@ -26,6 +26,17 @@ will change (the "locators"). They are stable between sessions unless the person
   `pdfinfo` (page count unchanged), `pdftotext -layout` (no em dashes or ligatures), and
   `pdftoppm -png -r 60` and look at the pages.
 
+## UI states and new sections
+
+A finalized edit is not visible in an already open Canva tab until it is reloaded; an open
+transaction is never visible. Exports through the connector never show up in the Canva
+download panel: poll the export job and download the returned URL. A new section (Languages,
+Certifications) is made by copying an existing block of the same kind on the same page, then
+`find_and_replace_text` inside the copy. The full state table is in `docs/limits.md`.
+
+Never rebuild a Canva CV as HTML or DOCX to "apply changes faster": the text matches, the
+layout drifts, and the person ends up with two masters. Edit the design, export, verify.
+
 ## Fonts
 
 Canva may substitute fonts on export. If `pdffonts` shows a fallback font, tell the person;

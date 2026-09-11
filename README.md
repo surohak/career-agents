@@ -27,6 +27,8 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - Tracks: management (team outcomes as proof), early career and career change (projects as proof); a portfolio site generated from the kernel for people with no website; relocation planning from what job posts say; reference prep
 - Inputs beyond typing: voice notes transcribed and routed, notes mirrored to Obsidian or Notion, job feeds and career pages through the same gates
 - For everyone: a `start` command that asks three questions and sets everything up; approvals answered from the phone through the digest channel; a recruiter-view render of the headline and top card; one-command export or deletion of everything held
+- Word perfect: a content decisions log every draft obeys (aliases, banned claims, fixed wording, per-surface choices), a strict mode that lists every remaining wording difference with one proposed sentence per row, and a verify pass for hand edits that reads what the LinkedIn MCP cannot see
+- Say it: talk tracks in three lengths (90 seconds, 3 to 5 minutes, 15 to 20 minutes) from CV facts with follow-up answers and a do-not-say list; banner iteration from a screenshot into numbered versions with change notes
 - Reliability: an operator self-test before every write session, a run log the weekly review reads, 12 eval cases, a smoke script with expected outputs, a generated skill reference and a docs site
 
 Three automation modes, set per person in `career.json`: `draft` (files only, the person applies
@@ -58,6 +60,9 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:linkedin-apply        # operator applies the round to the live profile, verifies
 /career-agents:cv-update             # apply chosen findings through your CV adapter
 /career-agents:site-sync             # audit and patch the personal website
+/career-agents:verify-edits          # after hand edits: tick the round, list what is left
+/career-agents:consistency-strict    # word perfect: every remaining difference, one wording each
+/career-agents:talk-tracks           # tell me about yourself, in three lengths
 /career-agents:cover-letter          # for one job post
 /career-agents:career-activation     # README, posting calendar, checklist
 /career-agents:linkedin-post         # one draft, or 5 topic candidates
@@ -129,11 +134,11 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       67 skills       agents/*.md        3 read-only agents + linkedin-operator
+skills/<name>/SKILL.md       72 skills       agents/*.md        3 read-only agents + linkedin-operator
 evals/                       12 plugin eval cases on the fictional example (claude plugin eval .)
 scripts/                     fetch, diff, site text, banner, verify, new workspace
 templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, pipeline, rejections, question bank, cohort, metrics, banner HTML, post cards
-docs/                        flow, automation modes, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
+docs/                        flow, automation modes, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, field limits and tool states, dump format, running it for others
 ```
 
 ## Scripts
@@ -144,7 +149,9 @@ docs/                        flow, automation modes, adapters (canva, docx, mark
 | `scripts/verify_kernel.sh <dir>` | checks the workspace is complete before any skill drafts |
 | `scripts/fetch_linkedin.sh [--url ...] [--max-age 60]` | one-shot headless fetch through the MCP server |
 | `scripts/profile_diff.py --linkedin a.md --cv b.txt [--label Site]` | word-level diff, date-format tolerant |
-| `scripts/site_text.py <url>` | stdlib crawler that dumps a personal site's visible text |
+| `scripts/site_text.py <url> --out sources/site.txt` | stdlib crawler that dumps a personal site's visible text; writes only where `--out` says |
+| `scripts/linkedin_dump_check.py sources/linkedin.md` | validates a LinkedIn dump and names the sections the MCP could not read |
+| `scripts/decisions_check.py <workspace> [files]` | flags banned phrases and forbidden wording from profile/decisions.md, exit 1 on a hit |
 | `scripts/render_banner.sh in.html out.png` | headless Chrome render at 2x (`BANNER_W`/`BANNER_H` for cards and OG images) |
 | `scripts/dashboard.py <workspace>` | self-contained HTML dashboard from the markdown logs |
 | `scripts/smoke.sh [--update]` | runs every deterministic part on the example and diffs against expected outputs |

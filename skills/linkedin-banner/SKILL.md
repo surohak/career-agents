@@ -17,7 +17,9 @@ allowed-tools: "Read Write Bash(${CLAUDE_PLUGIN_ROOT}/scripts/render_banner.sh *
 3. Render: `${CLAUDE_PLUGIN_ROOT}/scripts/render_banner.sh out/banner.html out/banner.png`
 4. Look at the PNG (Read the file) and check: nothing in the bottom-left 400x160 avatar zone, nothing
    in the right 120px, text readable at 50 percent scale, no orphan words.
-5. `draft`: ask for feedback, the user uploads by hand. `assisted` or `auto`: hand `out/banner.png`
+5. Feedback (a screenshot, "add a chip for X", "cut on mobile") goes to `banner-iterate`, which
+   makes v2, v3 with a change note each in `out/banner/`.
+6. `draft`: ask for feedback, the user uploads by hand. `assisted` or `auto`: hand `out/banner.png`
    to `linkedin-apply` as an `upload_image` action; the operator uploads it and confirms.
 
 Lessons baked in from real use:
