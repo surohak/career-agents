@@ -17,6 +17,10 @@ skills, read-only agents, scripts and templates you can run for yourself or for 
 - Profile review from a recruiter's view: search keyword coverage, ATS parseability of the PDF, six-second test, scored report
 - 90-day LinkedIn growth plan with target accounts, weekly routine and success metrics; a weekly review loop on pasted analytics
 - Content engine (post, carousel, article, snippet from one real project), case studies for the site and LinkedIn Projects, skills gap against real job posts
+- Guided intake for a new person (CV PDF, LinkedIn, three writing samples in, filled kernel out) and a one-command full review of LinkedIn, CV and site with scores and a fact-by-fact match matrix
+- Application pipeline with stages, follow-up dates and a daily due list; company briefs; hiring-manager outreach; recommendation requests
+- Interview prep per stage (HR screen, hiring manager, tech 1 and 2, EM, PM or PO, CTO or Head of Engineering, final) from a pasted invite or the LinkedIn inbox, then a mock interview in chat scored against STAR
+- Offer comparison and negotiation script; headline A/B test on real analytics; post visuals (quote, code and steps cards); talks and long-form calendar; second-language profile and CV; other platforms (GitHub README, Wellfound, Indeed, Xing, dev.to); site SEO; a private dashboard
 
 Three automation modes, set per person in `career.json`: `draft` (files only, the person applies
 by hand), `assisted` (everything executed through MCP and browser, one yes per action), `auto`
@@ -61,6 +65,21 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:interview-prep        # STAR answers from real facts, questions to ask
 /career-agents:weekly-review         # log analytics, decide next week's changes
 /career-agents:skills-gap            # surface / strengthen / learn / drop
+/career-agents:intake                # guided onboarding: kernel filled from CV, LinkedIn, 3 writing samples
+/career-agents:career-review         # LinkedIn + CV + site in one report: scores, match matrix, top 10 fixes
+/career-agents:application-tracker   # pipeline stages, follow-ups, "what is due today"
+/career-agents:company-research      # one-page brief from site, careers page, LinkedIn company page
+/career-agents:cold-outreach         # hiring-manager note via people search, gated, tracked
+/career-agents:recommendations       # who to ask, request notes, suggested texts, endorsements
+/career-agents:mock-interview        # paste the invite or say "EM round at Acme": stage-aware practice
+/career-agents:offer-review          # comparison table, questions, negotiation script (not financial advice)
+/career-agents:multi-platform        # GitHub README, Wellfound, Indeed, Xing, dev.to from the same facts
+/career-agents:site-seo              # titles, meta, Person JSON-LD, sitemap, OG image, name search
+/career-agents:talks-and-writing     # CFP matcher, abstracts, article calendar
+/career-agents:multilingual          # second-language headline, About and CV, fact-identical
+/career-agents:headline-test         # two-week A/B on search appearances (assisted/auto)
+/career-agents:post-visuals          # quote / code / steps cards rendered to PNG for posts
+/career-agents:dashboard             # private HTML page from metrics, pipeline and post log
 ```
 
 The workspace is a private folder (`career.json`, `profile/`, `sources/`, `out/`) that lives
@@ -71,9 +90,10 @@ outside this repo. See [docs/flow.md](docs/flow.md) for the stage map and
 
 ```
 .claude-plugin/plugin.json   manifest        .mcp.json          bundled LinkedIn MCP server
-skills/<name>/SKILL.md       23 skills       agents/*.md        3 read-only agents + linkedin-operator
+skills/<name>/SKILL.md       38 skills       agents/*.md        3 read-only agents + linkedin-operator
+evals/                       plugin eval cases on the fictional example (claude plugin eval .)
 scripts/                     fetch, diff, site text, banner, verify, new workspace
-templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, metrics, banner HTML
+templates/                   workspace kernel, rebuild file, posting calendar, post log, jobs log, pipeline, metrics, banner HTML, post cards
 docs/                        flow, automation modes, adapters (canva, docx, markdown-html, google-docs), LinkedIn writes, running it for others
 ```
 
@@ -86,7 +106,8 @@ docs/                        flow, automation modes, adapters (canva, docx, mark
 | `scripts/fetch_linkedin.sh [--url ...] [--max-age 60]` | one-shot headless fetch through the MCP server |
 | `scripts/profile_diff.py --linkedin a.md --cv b.txt [--label Site]` | word-level diff, date-format tolerant |
 | `scripts/site_text.py <url>` | stdlib crawler that dumps a personal site's visible text |
-| `scripts/render_banner.sh in.html out.png` | headless Chrome render at 2x |
+| `scripts/render_banner.sh in.html out.png` | headless Chrome render at 2x (`BANNER_W`/`BANNER_H` for cards and OG images) |
+| `scripts/dashboard.py <workspace>` | self-contained HTML dashboard from the markdown logs |
 
 ## Safety model
 

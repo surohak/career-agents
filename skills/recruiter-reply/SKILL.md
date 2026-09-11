@@ -46,3 +46,5 @@ share employer internals, never attach the CV without the user's yes.
   are low risk; interested and negotiate replies should stay gated unless the person decided otherwise.
 Log each sent reply to `out/jobs.md` under "In progress": date, company, role, stage. Never
 send the CV file itself; point to the site or offer to send on request.
+
+Pipeline: follow the writer rules in the `application-tracker` skill and update `out/pipeline.md` accordingly.

@@ -78,3 +78,5 @@ Then update `out/jobs.md`: date, query, counts per bucket, one line per Fit YES 
 "Waiting on the user" list. Replace the "Last scan" section, do not append forever.
 For apply-now jobs: `draft` mode stops here; `assisted` asks which to continue; `auto` runs
 `job-match` on each, then `cover-letter` and `job-apply` for those at 60 percent fit or more.
+
+Pipeline: follow the writer rules in the `application-tracker` skill and update `out/pipeline.md` accordingly.

@@ -1,25 +1,36 @@
 {
   "name": "career-agents",
   "displayName": "Career Agents",
-  "description": "Reusable Claude Code flow for a person's career: sync LinkedIn, CV and personal website, rebuild LinkedIn copy and banner, recruiter-view profile review, 90-day growth plan, posts and content sets, gated job scan and match, cover letters, recruiter replies, interview prep, weekly metrics loop. Three automation modes: draft, assisted, auto; a browser operator agent applies LinkedIn writes.",
-  "version": "0.3.0",
+  "description": "Career agents for anyone: sync LinkedIn, CV and personal website from one source of truth, review and score all three, find and apply to jobs, track the pipeline, prep and mock every interview stage, write posts with visuals, grow reach, go multi-platform and multilingual, review offers, and see it all on a dashboard. Automation modes draft/assisted/auto: LinkedIn MCP for reads and messages, a browser operator agent for profile edits, posts and applications.",
+  "version": "0.4.0",
   "license": "MIT",
   "keywords": [
-    "linkedin",
-    "cv",
-    "resume",
+    "ats",
     "career",
-    "personal-website",
     "cover-letter",
-    "job-search",
-    "linkedin-posts",
+    "cv",
+    "dashboard",
+    "evals",
     "growth",
+    "interview",
     "interview-prep",
-    "ats"
+    "job-search",
+    "linkedin",
+    "linkedin-posts",
+    "mock-interview",
+    "offer",
+    "outreach",
+    "personal-website",
+    "pipeline",
+    "resume",
+    "seo"
   ],
   "skills": "./skills/",
   "agents": "./agents/",
   "mcpServers": "./.mcp.json",
   "repository": "https://github.com/surohak/career-agents",
-  "homepage": "https://github.com/surohak/career-agents"
+  "homepage": "https://github.com/surohak/career-agents",
+  "experimental": {
+    "evals": "evals"
+  }
 }

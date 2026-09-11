@@ -28,15 +28,24 @@ in this conversation.
 | 11 | Review | `profile-review` | `out/profile-review-<date>.md` | feeds rebuild and cv-update |
 | 12 | Growth | `linkedin-growth`, `content-engine`, `case-study` | `out/growth-plan.md`, `out/content/`, `out/case-studies/` | drafts only |
 | 13 | Loop | `weekly-review`, `skills-gap` | `out/metrics.md`, `out/skills-gap-*.md` | operator reads analytics; draft: user pastes |
-| 14 | Inbound | `recruiter-reply`, `interview-prep` | drafts, `out/interview-*.md` | never sent |
+| 14 | Inbound | `recruiter-reply`, `interview-prep`, `mock-interview` | drafts, `out/interview-*.md` | send under `approvals.message` |
+| 15 | Intake | `intake` | filled kernel from CV PDF, LinkedIn and 3 writing samples | verify_kernel passes |
+| 16 | Full review | `career-review` | `out/review-<date>.md` (scores, match matrix, top 10 fixes) | read-only |
+| 17 | Pipeline | `application-tracker`, `company-research`, `cold-outreach` | `out/pipeline.md`, `out/companies/`, outreach | `approvals.connect`, `approvals.message` |
+| 18 | Social proof | `recommendations` | `out/recommendations.md` | requests under `approvals.message` |
+| 19 | Reach | `multi-platform`, `site-seo`, `headline-test` | `out/platforms/`, `out/site-seo-*.md`, `out/headline-test.md` | operator edits by mode |
+| 20 | Content plus | `post-visuals`, `talks-and-writing`, `multilingual` | `out/cards/`, `out/talks.md`, `out/i18n/` | by mode |
+| 21 | Offer | `offer-review` | `out/offer-*.md` | not financial advice |
+| 22 | Dashboard | `dashboard` | `out/dashboard.html` | private |
 
 ## How to run
 
 1. Locate the workspace: the current directory if it has `career.json`, else ask for the path,
    else offer to run `career-setup`. Run `${CLAUDE_PLUGIN_ROOT}/scripts/verify_kernel.sh <ws>`.
 2. Read `profile/MEMORY.md`, then `constraints.md`, `voice.md`, `positioning.md`. Always.
-3. Ask which stage to start from if the user did not say. Default: 1, 2, then 11 (`profile-review`),
-   then stop and show the audit and the review score. Do not chain into rebuild or CV changes without the user choosing findings.
+3. Ask which stage to start from if the user did not say. Default for a new person: 15 (`intake`)
+   then 16 (`career-review`). Default otherwise: 16, which covers stages 1, 2 and 11 in one pass,
+   then stop and show the scores, the match matrix and the top fixes. Do not chain into rebuild or CV changes without the user choosing findings.
 4. After each stage print a "what is left" list (unfinished findings, blocked items, things that
    need a manual action on LinkedIn). Keep it in `out/status.md` and update it, do not append.
 5. Rounds: LinkedIn work is iterative. After round N is applied, re-fetch and re-audit, then
@@ -50,7 +59,7 @@ except actions whose `approvals` flag is true. Stages that execute: `linkedin-ap
 `linkedin-post` (publish), `linkedin-growth` (comments, connection notes), `recruiter-reply`
 (send), `job-apply`, `weekly-review` (analytics read), `cv-update`, `site-sync`. In `auto` mode
 the flow runs end to end: fetch, audit, review, rebuild, apply, verify, banner, CV, site, growth
-plan, then a first batch of posts and a job scan, and stops only at gated approvals or a
+plan, then a first batch of posts, a job scan into the pipeline, the daily due list, and stops only at gated approvals or a
 `blocked` browser status.
 
 ## Rules that apply to every stage

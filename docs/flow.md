@@ -29,8 +29,29 @@ flowchart TD
   S14 --> S17[weekly-review<br/>metrics.md]
   S10 --> S18[skills-gap]
   S19[recruiter-reply] --> S11
+  S22[intake<br/>guided onboarding] --> S1
+  S1 --> S23[career-review<br/>scores + match matrix]
+  S23 --> S3
+  S23 --> S5
+  S23 --> S6
+  S10 --> S24[application-tracker<br/>pipeline.md, due list]
+  S21 --> S24
+  S19 --> S24
+  S24 --> S25[company-research]
+  S25 --> S26[cold-outreach<br/>gated]
+  S12 --> S27[mock-interview<br/>stage-aware]
+  S24 --> S28[offer-review]
+  S3 --> S29[recommendations]
+  S3 --> S30[multi-platform]
+  S3 --> S31[multilingual]
+  S6 --> S32[site-seo]
+  S17 --> S33[headline-test]
+  S9 --> S34[post-visuals]
+  S15 --> S35[talks-and-writing]
+  S17 --> S36[dashboard<br/>dashboard.html]
+  S24 --> S36
   classDef gate fill:#fde68a,stroke:#b45309,color:#000;
-  class S3,S5,S6 gate;
+  class S3,S5,S6,S26,S30 gate;
 ```
 
 Yellow nodes are where the automation mode decides: `draft` stops with a file, `assisted` asks

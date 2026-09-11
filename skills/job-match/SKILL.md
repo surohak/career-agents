@@ -38,3 +38,5 @@ a cover letter or interview, never a fabricated bullet.
 - Headline line for the CV summary matching the JD title if the CV title is equivalent.
 These are proposals for a copy of the CV (`out/cv-<company>.md` from cv-canonical), not edits
 to the canonical file, unless the user asks to keep them. Then hand off to `cover-letter`.
+
+Pipeline: follow the writer rules in the `application-tracker` skill and update `out/pipeline.md` accordingly.
