@@ -36,3 +36,18 @@ Write tools (`send_message`, `connect_with_person`) are used by `recruiter-reply
 The server drives a real browser session stored in `~/.linkedin-mcp/`. Fetch once per hour,
 never loop, never run it from cron. If the fetch hangs, run `uvx mcp-server-linkedin@latest --login`
 again in a terminal.
+
+## Skills edits (measured)
+
+- The cap is 100. At the cap the "Add skill" link disappears and a save may answer "This skill
+  is already on your profile" for a skill that is not there; that is the cap, not a duplicate.
+  Plan removals first, one removal buys one add.
+- `/in/<handle>/details/skills/` paints only the first ~10 skills with an edit pencil in every
+  tab and filter; skills further down have no reachable edit form. The Reorder dialog lists all
+  names (use it read-only for the inventory). If a skill to remove is out of reach, hand the
+  removal to the person (the LinkedIn mobile app lists every skill with delete).
+- Delete lives inside a skill's edit form: "Delete skill", then confirm.
+- The add typeahead fires on key events, not on pasted text: type the name, wait, then type the
+  last character as a separate key press. Use only an exact taxonomy match; if none exists
+  (tool names such as "Expo" are missing), skip it and put the keyword in About or a role.
+- A skill with a blank name can occupy a slot; report it, the person deletes it by hand.

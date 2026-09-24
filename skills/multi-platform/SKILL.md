@@ -18,13 +18,15 @@ list in `profile/identity.md`, one `- Name: URL` line each). Every entry is sync
 
 ```json
 "platforms": [
-  {"name": "Hirify", "edit_url": "https://hirify.me/account/profile/1/edit",
-   "public_url": "https://hirify.me/<handle>", "channel": "browser", "notes": "badge off"}
+  {"name": "<Platform>", "edit_url": "<URL of the profile edit page>",
+   "public_url": "<public profile URL, optional>", "channel": "browser",
+   "notes": "<anything to keep as is, e.g. open-to-work badge stays off>"}
 ]
 ```
 
 When the user mentions a profile URL that is not in the registry, add it (after a yes) before
-syncing, so the next run includes it. Never create accounts; if the person has no account on a
+syncing, so the next run includes it. The worked example is `examples/alex-example`
+(`sources/talentboard.txt`, eval `multi-platform-registry`). Never create accounts; if the person has no account on a
 platform, stop and say so.
 
 Known field maps (anything else: discover the fields on the first run, read-only, and save the

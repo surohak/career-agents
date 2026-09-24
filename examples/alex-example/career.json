@@ -24,6 +24,15 @@
     "content_paths": [],
     "chatbot_knowledge_base": ""
   },
+  "platforms": [
+    {
+      "name": "TalentBoard",
+      "edit_url": "https://talentboard.example/me/edit",
+      "public_url": "https://talentboard.example/alex-rivera",
+      "channel": "browser",
+      "notes": "fictional board for the eval"
+    }
+  ],
   "target": {
     "role": "Senior Full-Stack Engineer",
     "keywords": [

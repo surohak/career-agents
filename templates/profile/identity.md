@@ -14,3 +14,10 @@
 ## Short bio (2 to 3 sentences, facts only)
 
 <Write it here. This is reused by headline, About, README and cover letters.>
+
+## Profiles to keep in sync
+
+Every other profile you keep (job boards, talent sites). `multi-platform` updates all of them
+after a CV change. Same list can live in `career.json` `platforms` instead.
+
+- <Platform>: <profile edit URL>

@@ -11,3 +11,6 @@ python3 ../../scripts/profile_diff.py --linkedin sources/linkedin.md --cv source
 Expected: the differ reports a FACT difference on Fintra dates (Jan vs Feb 2022), a CHANGED
 bullet (4 s vs 4.1 s), and MISSING bullets (design system, SEPA payout flow). `accepted.md`
 makes the headline difference silent.
+
+`sources/talentboard.txt` is a saved snapshot of a fictional job-board profile registered in
+`career.json` `platforms`, for trying `multi-platform` without a browser.

@@ -13,7 +13,7 @@ stated. LinkedIn changes these without notice; when a save fails, re-measure and
 | Experience title | 100 | |
 | Project name | 255 | |
 | Project description | 2,000 | |
-| Skills | 50 total, 5 pinned | pinned order is the order recruiters see |
+| Skills | 100 total, top 5 shown first | at 100 LinkedIn hides "Add skill"; remove before adding (see `docs/linkedin-writes.md`) |
 | Featured | no hard count | the first 3 are visible without scrolling |
 | Post | 3,000 | first 210 visible before "see more" |
 | Comment | 1,250 | |
@@ -42,6 +42,19 @@ stated. LinkedIn changes these without notice; when a save fails, re-measure and
 | New section needed (Languages, Certifications) | no empty block to fill | duplicate an existing block of the same kind with the connector (`copy` the element on the same page), then `find_and_replace_text` inside the copy; never `add_text` |
 | Font fallback | `pdffonts` lists a substitute | fix in the Canva UI, re-export |
 | HTML or DOCX rebuild of a Canva CV | text matches, layout drifts (wrapping, spacing, page count) | edit the Canva master and export; never ship the rebuild |
+
+## Other platforms
+
+Measured on first contact by `multi-platform` and saved per person in
+`out/platforms/<platform>.fields.md`. General patterns:
+
+| Pattern | Seen on | What to do |
+|---------|---------|------------|
+| Skills entered as tags from a taxonomy | most job boards | a tag the site split ("Shadcn" + "Ui") or lower-cased is a WORDING row; pick the site's suggestion, never force free text |
+| Languages as CEFR levels | CIS and EU boards | map "full professional" to C1, "native" to native; do not raise a level the CV does not state |
+| UI in another language than the profile | Habr Career (Russian UI) | keep content in the CV language unless `multilingual` produced a version |
+| Resume upload re-parses the profile | talent sites with AI import | upload, then re-read every section; undo an import that overwrote newer text |
+| Job-search status, salary, visibility | every board | settings, not copy: list them, change only on request |
 
 ## PDF checks after any export
 

@@ -1,0 +1,23 @@
+TalentBoard profile (fictional snapshot, read-only fetch)
+
+Alex Rivera
+Full-Stack Engineer
+Status: Open to work, actively looking
+Salary shown: from 70k EUR
+Contacts: alex@alexrivera.exmaple · alexrivera.example
+
+About
+Full-stack engineer shipping logistics and fintech web products since 2018 — React and TypeScript on the front end, Node.js and PostgreSQL behind it.
+
+Experience
+Northwind Logistics, Full-Stack Engineer
+Mar 2022 to Present
+- Carrier tracking platform used by dispatch teams to follow shipments in real time
+- Led the move from a jQuery monolith → React and TypeScript with a GraphQL API
+
+Fintra Payments, Full-Stack Engineer
+Jun 2018 to Present
+- Merchant payments dashboard for reconciliation and payouts
+
+Skills: React, Type, Script, Node.js, GraphQL, jQuery
+Languages: English B2, Portuguese native
