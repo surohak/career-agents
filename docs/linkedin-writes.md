@@ -44,9 +44,17 @@ again in a terminal.
   Plan removals first, one removal buys one add.
 - `/in/<handle>/details/skills/` paints only the first ~10 skills with an edit pencil in every
   tab and filter; skills further down have no reachable edit form. The Reorder dialog lists all
-  names (use it read-only for the inventory). If a skill to remove is out of reach, hand the
-  removal to the person (the LinkedIn mobile app lists every skill with delete).
-- Delete lives inside a skill's edit form: "Delete skill", then confirm.
+  names (use it read-only for the inventory).
+- Out-of-reach skills still open by URL: `/in/<handle>/details/skills/edit/forms/<id>/`. Skills
+  added years ago have small sequential ids (1, 2, 3 ...), so walk them and read the dialog
+  heading ("Edit <Skill>") before acting; newer skills have 10-digit ids that cannot be walked.
+  If a skill to remove has neither a pencil nor a small id, hand the removal to the person (the
+  LinkedIn mobile app lists every skill with delete).
+- The skills list sometimes renders empty on load; opening and closing the "..." menu repaints it.
+- LinkedIn's own taxonomy has typos (the canvas entity is "HTLM5 Canvas"); a misspelled entity
+  does not match recruiter searches, so skip it and put the correct term in About or a role.
+- Delete lives inside a skill's edit form: "Delete skill", then confirm. The first click after the
+  form loads is often swallowed; check that the "Delete from profile?" dialog opened.
 - The add typeahead fires on key events, not on pasted text: type the name, wait, then type the
   last character as a separate key press. Use only an exact taxonomy match; if none exists
   (tool names such as "Expo" are missing), skip it and put the keyword in About or a role.
