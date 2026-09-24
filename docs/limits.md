@@ -52,6 +52,9 @@ Measured on first contact by `multi-platform` and saved per person in
 |---------|---------|------------|
 | Skills entered as tags from a taxonomy | most job boards | a tag the site split ("Shadcn" + "Ui") or lower-cased is a WORDING row; pick the site's suggestion, never force free text |
 | Languages as CEFR levels | CIS and EU boards | map "full professional" to C1, "native" to native; do not raise a level the CV does not state |
+| Skills tag cap | Habr Career: 30 tags; Remote.com and Hirify: no cap seen | swap weak tags out before adding; report what did not fit |
+| Contact email vs login email | Habr Career | the public contact email is a profile field; the login/notification email needs a code sent to the old address, so the person changes it |
+| Links limited to LinkedIn | Remote.com | GitHub and site go into the intro or the resume instead |
 | UI in another language than the profile | Habr Career (Russian UI) | keep content in the CV language unless `multilingual` produced a version |
 | Resume upload re-parses the profile | talent sites with AI import | upload, then re-read every section; undo an import that overwrote newer text |
 | Job-search status, salary, visibility | every board | settings, not copy: list them, change only on request |
