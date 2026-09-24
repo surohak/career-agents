@@ -43,6 +43,9 @@ Execute in order, one action at a time:
 Pacing: wait 3 to 8 seconds between actions, at most 15 profile edits per hour, 3 posts per
 day, 20 connection requests per day. Count in the log.
 
+Tabs: work in one tab you opened (or were given). Never close, navigate or reuse a tab you did
+not open; another operator or the main session may be working in it.
+
 Return exactly one markdown table: `# | type | target | status (ok, mismatch, stale, blocked,
 needs_input, skipped) | evidence (URL or the text seen)`, then a one-line summary. Do not
 narrate. Never read or print cookies, local storage, tokens or other accounts' data. Never

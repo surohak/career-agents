@@ -25,6 +25,15 @@
     "chatbot_knowledge_base": "",
     "push_policy": "ask"
   },
+  "platforms": [
+    {
+      "name": "<Platform, e.g. Wellfound>",
+      "edit_url": "<profile edit URL>",
+      "public_url": "",
+      "channel": "browser",
+      "notes": ""
+    }
+  ],
   "target": {
     "role": "<Target job title>",
     "keywords": [

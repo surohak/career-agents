@@ -65,3 +65,8 @@ with only what still differs. Always end with
 `draft` mode: the user pastes by hand. `assisted` or `auto`: hand the round file to
 `linkedin-apply`, which drives the browser operator, then re-fetches and re-audits. Rounds
 continue automatically until the differ is quiet or the operator reports `blocked`.
+
+## Fan-out
+
+When the changed facts are live, offer `multi-platform` for every entry in the `career.json`
+`platforms` registry, so the other profiles catch up in the same session.

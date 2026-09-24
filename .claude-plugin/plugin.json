@@ -2,7 +2,7 @@
   "name": "career-agents",
   "displayName": "Career Agents",
   "description": "Career agents for anyone: sync LinkedIn, CV and personal website from one source of truth, review and score all three, find and apply to jobs, track the pipeline, prep and mock every interview stage, write posts with visuals, grow reach, go multi-platform and multilingual, review offers, see it all on a dashboard, and run it unattended on a schedule with email, calendar and digest integrations. Automation modes draft/assisted/auto: LinkedIn MCP for reads and messages, a browser operator agent for profile edits, posts and applications.",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "license": "MIT",
   "keywords": [
     "ats",

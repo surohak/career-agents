@@ -56,7 +56,9 @@ ${CLAUDE_PLUGIN_ROOT}/scripts/new_workspace.sh <dir>
 Then fill, in this order, asking the user for anything you cannot derive:
 
 1. `career.json`: name, LinkedIn URL, CV adapter (`canva`, `docx`, `markdown`, `html`,
-   `google-docs`, `pdf-only`) and its source, site URL and repo if any, target role and keywords.
+   `google-docs`, `pdf-only`) and its source, site URL and repo if any, target role and keywords,
+   and `platforms`: every other profile the person keeps (job boards, talent sites) with its edit
+   URL, so `multi-platform` can keep all of them in sync.
 2. `profile/cv-canonical.md`: if the user has a CV PDF, run
    `pdftotext -layout cv.pdf -` and turn it into the canonical markdown. Confirm every date and
    title with the user. If they only have LinkedIn, fetch it first (`profile-fetch`) and build the

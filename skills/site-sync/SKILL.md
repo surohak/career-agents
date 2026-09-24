@@ -44,3 +44,8 @@ After deploy (the user's job unless they ask), re-run `scripts/site_text.py` and
 ${CLAUDE_PLUGIN_ROOT}/scripts/site_text.py <url> --out sources/site.txt
 python3 ${CLAUDE_PLUGIN_ROOT}/scripts/profile_diff.py --linkedin sources/linkedin.md --cv sources/site.txt --label Site
 ```
+
+## Fan-out
+
+When the changed facts are live, offer `multi-platform` for every entry in the `career.json`
+`platforms` registry, so the other profiles catch up in the same session.

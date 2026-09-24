@@ -85,7 +85,7 @@ in `.mcp.json`; log in once with `uvx mcp-server-linkedin@latest --login`.
 /career-agents:recommendations       # who to ask, request notes, suggested texts, endorsements
 /career-agents:mock-interview        # paste the invite or say "EM round at Acme": stage-aware practice
 /career-agents:offer-review          # comparison table, questions, negotiation script (not financial advice)
-/career-agents:multi-platform        # GitHub README, Wellfound, Indeed, Xing, dev.to from the same facts
+/career-agents:multi-platform        # every profile you keep (Hirify, Habr, Remote.com, Wellfound, Xing...) synced from the same facts
 /career-agents:site-seo              # titles, meta, Person JSON-LD, sitemap, OG image, name search
 /career-agents:talks-and-writing     # CFP matcher, abstracts, article calendar
 /career-agents:multilingual          # second-language headline, About and CV, fact-identical

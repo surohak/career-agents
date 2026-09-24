@@ -35,6 +35,9 @@ pdftoppm -png -r 60 out/cv.pdf out/cv-preview        # then Read the PNG(s) and 
 ```
 
 5. Re-run `profile-audit` against the new `sources/cv.txt`; expect zero FACT rows for the applied items.
+6. Fan out: list the applied changes as one line each and offer `multi-platform` for every entry
+   in the `career.json` `platforms` registry (and the site through `site-sync`). The change is
+   not done until each registered profile shows it or the person skips that platform.
 
 ## Hard rules
 
